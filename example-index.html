@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="bn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fishfy - মাছের তথ্য · রেসিপি · কমিউনিটি</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts (Bangla-friendly) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bangla:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --accent: #0dcaf0;
+            --sea: #0b7285;
+            --muted: #6c757d;
+        }
+
+        html,
+        body {
+            font-family: 'Noto Sans Bangla', sans-serif;
+            scroll-behavior: smooth;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            color: #212529;
+        }
+
+        /* Navbar custom */
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+
+        /*======================= Hero Section Styles============ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url("/assets/images/hero/hero-2.jpg") center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                    rgba(0, 0, 0, 0.7),
+                    rgba(0, 0, 0, 0.6));
+            animation: gradientMove 8s infinite alternate;
+            z-index: 1;
+        }
+
+        /* Title animation */
+        .animate-title {
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        .animate-text {
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        /* CTA buttons pulse */
+        .btn-cta {
+            animation: pulse 2s infinite;
+        }
+
+        /* Hover effects */
+        .card-fish {
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+        }
+
+        .card-fish:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-img {
+            transition: transform 0.5s ease;
+        }
+
+        .card-fish:hover .hero-img {
+            transform: scale(1.05) rotate(-1deg);
+        }
+
+        /* Extra Suggestion Card */
+        .suggestion-card {
+            background: linear-gradient(135deg, rgba(0, 150, 200, 0.9), rgba(0, 80, 150, 0.9));
+            color: #fff;
+            padding: 30px 20px;
+            border-radius: 18px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .suggestion-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .suggestion-card .icon {
+            font-size: 3rem;
+            animation: bounce 2s infinite;
+        }
+
+        /* Hover glow effect */
+        .suggestion-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .suggestion-card:hover::before {
+            transform: scale(1);
+        }
+
+        /* Bounce animation for icons */
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+
+        /* Keyframes */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.07);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: left top;
+            }
+
+            100% {
+                background-position: right bottom;
+            }
+        }
+
+        /* =============Hero Css End=================== */
+
+        .card-fish {
+            border: 0;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(3, 37, 65, 0.08);
+        }
+
+        .badge-cat {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            color: var(--sea);
+        }
+
+        footer {
+            background: #03243a;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .nav-link.active {
+            font-weight: 700;
+            color: var(--sea) !important;
+        }
+
+        /* recipe image hover */
+        .recipe-card img {
+            transition: transform .4s ease;
+        }
+
+        .recipe-card:hover img {
+            transform: scale(1.06);
+        }
+
+        /* floating action button */
+        .fab {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            background: var(--sea);
+            color: white;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(3, 37, 65, 0.2);
+            cursor: pointer;
+            z-index: 1050;
+        }
+
+        /* responsive tweaks */
+        @media (max-width:768px) {
+            .hero {
+                min-height: 50vh;
+                padding-top: 60px;
+            }
+        }
+
+        /* small animations */
+        .pulse {
+            animation: pulse 2.2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* blog excerpt */
+        .excerpt {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="assets/images/fish-logo.png" alt="logo" width="100" class="me-2 rounded-circle">
+                <!-- Fishfy -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">হোম</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">আমাদের সম্পর্কে</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fish-info">মাছের তথ্য</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#recipes">রেসিপি</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">ব্লগ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">যোগাযোগ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / HOME -->
+    <header id="home" class="hero position-relative">
+        <!-- Background overlay -->
+        <div class="hero-overlay"></div>
+
+        <div class="container position-relative z-2">
+            <div class="row align-items-center">
+                <!-- Text Section -->
+                <div class="col-md-7 text-white" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold animate-title">
+                        🐟 Fishfy — মাছের জগৎ, রেসিপি ও কমিউনিটি
+                    </h1>
+                    <p class="lead mt-3 animate-text">
+                        বাংলা ভাষায় মাছের পুষ্টি, পরিচর্যা, সুস্বাদু রেসিপি এবং মাছ-বিশেষ আলোচনা —
+                        সবকিছু এক জায়গায়।
+                    </p>
+                    <p class="mt-4">
+                        <a href="#recipes" class="btn btn-primary me-2 btn-cta">🍲 রেসিপি দেখুন</a>
+                        <a href="#fish-info" class="btn btn-outline-light btn-cta">📘 মাছের তথ্য</a>
+                    </p>
+                </div>
+
+                <!-- Right Side Card -->
+                <div class="col-md-5" data-aos="fade-left">
+                    <div class="card card-fish text-dark p-3 shadow-lg border-0 rounded-4">
+                        <img src="assets/images/fry/fish-fry.jpg" alt="Fresh Fish"
+                            class="img-fluid rounded-4 hero-img" />
+                        <div class="p-3">
+                            <h5 class="mb-2 fw-bold">✨ আজকের হেলথ টিপ</h5>
+                            <p class="mb-0 small">
+                                সপ্তাহে অন্তত ২ দিন মাছ খান। এতে শরীর পায় ওমেগা-৩ ফ্যাটি অ্যাসিড, যা হৃদরোগের
+                                ঝুঁকি কমায় এবং মস্তিষ্ককে সক্রিয় রাখে।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extra Suggestion -->
+            <div class="row mt-5 text-center" data-aos="fade-up">
+                <div class="col-md-4 mb-4">
+                    <div class="suggestion-card">
+                        <div class="icon">🥗</div>
+                        <h5 class="mt-3">আজকের রেসিপি</h5>
+                        <p>ইলিশ ভাজা — ধোঁয়া ওঠা গরম ভাতের সঙ্গে একদম পারফেক্ট!</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="suggestion-card">
+                        <div class="icon">💡</div>
+                        <h5 class="mt-3">কুকিং টিপ</h5>
+                        <p>মাছ রান্নার আগে লেবুর রস মাখিয়ে রাখলে কাঁচা গন্ধ কমে যায়।</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="suggestion-card">
+                        <div class="icon">🌊</div>
+                        <h5 class="mt-3">মজার তথ্য</h5>
+                        <p>বাংলাদেশে প্রায় ২৬০ প্রজাতির স্বাদুপানির মাছ পাওয়া যায়।</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- QUICK FEATURES -->
+    <section class="py-5">
+        <div class="container" data-aos="fade-up">
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="p-4 border rounded h-100">
+                        <div class="mb-3"><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="36"
+                                height="36" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                <path
+                                    d="M1 2.828c.885-.37 2.154-.828 4-.828 1.846 0 3.115.458 4 .828V13.172c-.885-.37-2.154-.828-4-.828-1.846 0-3.115.458-4 .828V2.828z" />
+                                <path
+                                    d="M9 2.828c.885-.37 2.154-.828 4-.828 1.846 0 3.115.458 4 .828v10.344c-.885-.37-2.154-.828-4-.828-1.846 0-3.115.458-4 .828V2.828z" />
+                            </svg></div>
+                        <h5 class="mb-2">রেসিপি ও রান্না</h5>
+                        <p class="mb-0">সহজ ধাপে রেসিপি—নতুন কৌশল ও স্বাদ যা আপনি দ্রুত বানাতে পারেন।</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="p-4 border rounded h-100">
+                        <div class="mb-3"><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="36"
+                                height="36" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 2.748-.1 7.7c-.1.1-.2.2-.2.3 0 .4.3.8.6 1.2l6.1 6.3 6.1-6.3c.3-.4.6-.8.6-1.2 0-.1-.1-.2-.2-.3L8 2.748z" />
+                            </svg></div>
+                        <h5 class="mb-2">পুষ্টি ও স্বাস্থ্য</h5>
+                        <p class="mb-0">কোন মাছ কতটা পুষ্টিকর? শিশুর খাদ্যে কোন মাছ ভালো—সবই এখানে।</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="p-4 border rounded h-100">
+                        <div class="mb-3"><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="36"
+                                height="36" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                                <path d="M5 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
+                                <path d="M12 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
+                            </svg></div>
+                        <h5 class="mb-2">কমিউনিটি</h5>
+                        <p class="mb-0">আপনার গল্প, প্রশ্ন, রিভিউ ও টিপস শেয়ার করুন—মাছপ্রেমীদের সাথে যুক্ত হোন।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FISH INFO (page) -->
+    <section id="fish-info" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h3 class="section-title">মাছের তথ্য</h3>
+                    <p class="mb-0">বাংলাদেশে প্রচলিত গুরুত্বপূর্ণ মাছের পরিচিতি ও পুষ্টিগুণ</p>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary" onclick="openModal('fishModal')">মাছের তালিকা দেখুন</button>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- card 1 -->
+                <div class="col-md-4" data-aos="zoom-in">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1520201163981-5f1f1f9a3bd7?auto=format&fit=crop&w=800&q=60"
+                            class="card-img-top" alt="ilish">
+                        <div class="card-body">
+                            <h5 class="card-title">ইলিশ (Ilish)</h5>
+                            <p class="excerpt">ইলিশ বাংলাদেশের জাতীয় মাছ—ওমেগা-৩ ফ্যাটি অ্যাসিড, প্রোটিনে সমৃদ্ধ। ইলিশ
+                                ভর্তা, ইলিশ ভাজা বা ইলিশের ঝোল অত্যন্ত জনপ্রিয়।</p>
+                            <p class="mb-0"><strong>টিপ:</strong> ইলিশ নামানোর পর বেশি নুন ব্যবহার করবেন না; স্বাদ নষ্ট
+                                হতে পারে।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 2 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1601986785539-8d5b1e9b1b01?auto=format&fit=crop&w=800&q=60"
+                            class="card-img-top" alt="rui">
+                        <div class="card-body">
+                            <h5 class="card-title">রুই (Rui)</h5>
+                            <p class="excerpt">রুই মিষ্টি স্বাদের জন্য পরিচিত এবং তেলে ভাজা, মালাইকারি বা কারিতে ব্যবহৃত
+                                হয়। ভিটামিন ও মিনারেলে উপকারী।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 3 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=800&q=60"
+                            class="card-img-top" alt="katla">
+                        <div class="card-body">
+                            <h5 class="card-title">কাতলা (Katla)</h5>
+                            <p class="excerpt">কাতলা বড় আকৃতির, প্রোটিন ও স্বাদে সমৃদ্ধ — ঝোল ও কারিতে চমৎকার।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-5">
+
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-right">
+                    <h5>কাঁচা মাছ সংরক্ষণ টিপস</h5>
+                    <ul>
+                        <li>মাছ কেনার পর দ্রুত ফ্রিজে রাখুন — ৪°C বা নীচে ভালো থাকে।</li>
+                        <li>পাকস্থলীর জন্য শিশুদের рыб গেলে ভাজা করা বেছে নিন, বিশেষ রোগীর জন্য পরামর্শ নিন।</li>
+                        <li>মাছের দুর্গন্ধ থাকলে খেয়াল করুন — সতেজ মাছ হালকা সামুদ্রিক গন্ধ রাখে।</li>
+                    </ul>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <h5>পুষ্টি: কোন মাছ কিসে ভালো</h5>
+                    <p class="excerpt mb-0">ইলিশ — ওমেগা-৩; রুই ও কাতলা — ভালো প্রোটিন; স্যামন (বহির্গত) — উচ্চতর
+                        ওমেগা-৩।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECIPES -->
+    <section id="recipes" class="py-5">
+        <div class="container" data-aos="fade-up">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h3 class="section-title">রেসিপি</h3>
+                    <p class="mb-0">চেয়ে দেখুন জনপ্রিয় ও সহজ রেসিপি — প্রতিটি রেসিপিতে উপকরণ ও ধাপে ধাপে নির্দেশাবলী
+                        দেওয়া আছে।</p>
+                </div>
+                <div>
+                    <input id="recipeSearch" class="form-control" style="min-width:220px"
+                        placeholder="রেসিপি খুঁজুন...">
+                </div>
+            </div>
+
+            <div class="row g-4" id="recipeList">
+                <!-- recipe card template -->
+                <div class="col-md-4 recipe-card" data-aos="fade-up">
+                    <div class="card card-fish">
+                        <img src="https://images.unsplash.com/photo-1514512364185-5c7b9ccfb2c2?auto=format&fit=crop&w=800&q=60"
+                            class="card-img-top" alt="recipe1">
+                        <div class="card-body">
+                            <h5 class="card-title">ইলিশের ঝোল</h5>
+                            <p class="excerpt">সরল, সুস্বাদু এবং পরিবারে সবার পছন্দ — ইলিশের মসলা ঝোল।</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <button class="btn btn-sm btn-outline-primary" onclick="openRecipe('ilish-jhol')">রেসিপি
+                                    দেখুন</button>
+                                <small class="text-muted">প্রস্তুতিতে সময়: ২৫ মিনিট</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 recipe-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card card-fish">
+                        <img src="https://images.unsplash.com/photo-1604908177522-6a6d6d5a7a8b?auto=format&fit=crop&w=800&q=60"
+                            class="card-img-top" alt="recipe2">
+                        <div class="card-body">
+                            <h5 class="card-title">রুই ভাজা</h5>
+                            <p class="excerpt">কম সময়, কম মশলা—পারফেক্ট ভর্তা ও ভাতের সাথে।</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <button class="btn btn-sm btn-outline-primary" onclick="openRecipe('rui-bhaja')">রেসিপি
+                                    দেখুন</button>
+                                <small class="text-muted">প্রস্তুতিতে সময়: ২০ মিনিট</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 recipe-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card card-fish">
+                        <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&q=60"
+                            class="card-img-top" alt="recipe3">
+                        <div class="card-body">
+                            <h5 class="card-title">মাছের ফ্রায়</h5>
+                            <p class="excerpt">কেক, হালকা মসলা—বাচ্চাদের প্রিয় ফ্রায়।</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <button class="btn btn-sm btn-outline-primary" onclick="openRecipe('fish-fry')">রেসিপি
+                                    দেখুন</button>
+                                <small class="text-muted">প্রস্তুতিতে সময়: ৩০ মিনিট</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BLOG / COMMUNITY -->
+    <section id="blog" class="py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h3 class="section-title">ব্লগ ও কমিউনিটি</h3>
+                    <p class="mb-0">মাছ সংক্রান্ত গল্প, রান্নার টিপস এবং ব্যবহারকারীর রিভিউ।</p>
+                </div>
+                <div>
+                    <button class="btn btn-outline-success" onclick="openModal('postModal')">নতুন পোস্ট করুন</button>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">বিচিত্র মাছের উৎসব: আমার গ্রাম</h5>
+                            <p class="excerpt">গ্রামের নদীর ধারে প্রতিবারেই আমরা ছোটো উৎসব করি—ইলিশ ভাজা, মিষ্টি পোলাও
+                                আর উঠোনে হাসি।</p>
+                            <a href="#" class="stretched-link">পুরোটা পড়ুন</a>
+                        </div>
+                        <div class="card-footer text-muted">১০ সেপ্টেম্বর, ২০২৫</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">বাড়িতে মাছ সংরক্ষণ: সহজ টিপস</h5>
+                            <p class="excerpt">মাছ ঠাণ্ডা রাখার সঠিক পদ্ধতি ও বাজার থেকে কিভাবে তাজা মাছ চিনব—জানুন।</p>
+                            <a href="#" class="stretched-link">পুরোটা পড়ুন</a>
+                        </div>
+                        <div class="card-footer text-muted">০১ সেপ্টেম্বর, ২০২৫</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">প্রিয় মাছ: আপনার মতামত শেয়ার করুন</h5>
+                            <p class="excerpt">আপনি কোন মাছ সবচেয়ে পছন্দ করেন? কোন রেসিপি আপনার ফেভারিট? কমেন্ট করুন।
+                            </p>
+                            <a href="#" class="stretched-link">পুরোটা পড়ুন</a>
+                        </div>
+                        <div class="card-footer text-muted">২৫ আগস্ট, ২০২৫</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5">
+        <div class="container" data-aos="fade-up">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h3 class="section-title">যোগাযোগ করুন</h3>
+                    <p class="mb-4">প্রশ্ন, প্রস্তাব বা ব্যবসায়িক সুযোগ—নিচের ফর্মে লিখে পাঠান।</p>
+
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label">আপনার নাম</label>
+                            <input type="text" class="form-control" id="name" required>
+                            <div class="invalid-feedback">আপনার নাম দিন।</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">ইমেইল</label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="invalid-feedback">সঠিক ইমেইল দিন।</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">বার্তা</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                            <div class="invalid-feedback">বার্তা লিখুন।</div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">পাঠান</button>
+                    </form>
+
+                </div>
+                <div class="col-md-6">
+                    <h5>আমাদের ঠিকানা</h5>
+                    <p class="mb-1">Fishfy, ঢাকা, বাংলাদেশ</p>
+                    <p class="mb-1">মোবাইল: +880 1XXXXXXXXX</p>
+                    <p class="mb-4">ইমেইল: info@fishfy.example</p>
+
+                    <div class="ratio ratio-16x9">
+                        <!-- Map placeholder (swap iframe src later) -->
+                        <iframe
+                            src="https://maps.google.com/maps?q=Dhaka%20Bangladesh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Fishfy</h5>
+                    <p class="mb-0">মাছের ভালবাসা ও তথ্য—সবই বাংলায়। আমাদের সাথে থাকুন, শিখুন ও ভাগ করুন।</p>
+                </div>
+                <div class="col-md-4">
+                    <h6>ত্বরিত লিঙ্ক</h6>
+                    <ul class="list-unstyled">
+                        <li><a class="text-white" href="#recipes">রেসিপি</a></li>
+                        <li><a class="text-white" href="#fish-info">মাছের তথ্য</a></li>
+                        <li><a class="text-white" href="#blog">ব্লগ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6>সোশ্যাল</h6>
+                    <p class="mb-0">ফেসবুক: <a class="text-white" href="https://www.facebook.com/fishfy.kfl"
+                            target="_blank">Fishfy</a></p>
+                </div>
+            </div>
+
+            <hr class="my-4" style="border-color:rgba(255,255,255,0.08)">
+            <div class="text-center small">© ২০২৫ Fishfy • All rights reserved</div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat / CTA -->
+    <div class="fab" id="fabBtn" title="নতুন রেসিপি">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-plus-lg"
+            viewBox="0 0 16 16">
+            <path
+                d="M8 1a.5.5 0 0 1 .5.5V7.5H14a.5.5 0 1 1 0 1H8.5V14a.5.5 0 1 1-1 0V8.5H2a.5.5 0 1 1 0-1h5.5V1.5A.5.5 0 0 1 8 1z" />
+        </svg>
+    </div>
+
+    <!-- RECIPE MODAL -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recipeModalTitle">রেসিপি</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="recipeModalBody">
+                    <!-- content injected by JS -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GENERIC MODAL for fish list or post -->
+    <div class="modal fade" id="genericModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="genericModalTitle">শিরোনাম</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="genericModalBody">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">বন্ধ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POST MODAL -->
+    <div class="modal fade" id="postModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">নতুন পোস্ট করুন</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="postForm">
+                        <div class="mb-3">
+                            <label class="form-label">শিরোনাম</label>
+                            <input class="form-control" id="postTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">বর্ণনা</label>
+                            <textarea class="form-control" id="postBody" rows="4" required></textarea>
+                        </div>
+                        <button class="btn btn-success" type="submit">পোস্ট করুন</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({ duration: 700, once: true });
+
+        // Simple single-page active link highlighting on scroll
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function setActiveLink() {
+            let index = sections.length;
+            while (--index && window.scrollY + 120 < sections[index].offsetTop) { }
+            navLinks.forEach((link) => link.classList.remove('active'));
+            const id = sections[index].id;
+            const activeLink = Array.from(navLinks).find(l => l.getAttribute('href') === '#' + id);
+            if (activeLink) activeLink.classList.add('active');
+        }
+        setActiveLink();
+        window.addEventListener('scroll', setActiveLink);
+
+        // CONTACT FORM validation and pretend send
+        (function () {
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (!form.checkValidity()) {
+                    form.classList.add('was-validated');
+                    return;
+                }
+                // simulate send
+                alert('ধন্যবাদ! আপনার বার্তা প্রেরণ করা হয়েছে। আমরা দ্রুত উত্তর দেব।');
+                form.reset();
+                form.classList.remove('was-validated');
+            });
+        })();
+
+        // POSTS: simple client-side add to blog area
+        document.getElementById('postForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const title = document.getElementById('postTitle').value.trim();
+            const body = document.getElementById('postBody').value.trim();
+            if (!title || !body) return alert('সব খালি পূরণ করুন');
+            // prepend a card
+            const container = document.querySelector('#blog .row');
+            const col = document.createElement('div');
+            col.className = 'col-md-4';
+            col.innerHTML = `
+      <div class="card h-100" data-aos="fade-up">
+        <div class="card-body">
+          <h5 class="card-title">${escapeHtml(title)}</h5>
+          <p class="excerpt">${escapeHtml(body.substring(0, 120))}...</p>
+          <a href="#" class="stretched-link">পুরোটা পড়ুন</a>
+        </div>
+        <div class="card-footer text-muted">${new Date().toLocaleDateString('bn-BD')}</div>
+      </div>
+    `;
+            container.prepend(col);
+            const modal = bootstrap.Modal.getInstance(document.getElementById('postModal'));
+            modal.hide();
+            document.getElementById('postForm').reset();
+            AOS.refresh();
+        });
+
+        function escapeHtml(text) { return text.replace(/[&<>"']/g, function (m) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]); }); }
+
+        // Floating action (open new recipe quick)
+        document.getElementById('fabBtn').addEventListener('click', function () {
+            openRecipeQuick();
+        });
+
+        function openRecipeQuick() {
+            const modal = new bootstrap.Modal(document.getElementById('recipeModal'));
+            document.getElementById('recipeModalTitle').innerText = 'রেসিপি যোগ করুন (ডেমো)';
+            document.getElementById('recipeModalBody').innerHTML = `
+      <p class="mb-2">আপনি নতুন রেসিপি এখানে যোগ করতে পারেন — ডাটাবেস সংযুক্ত না থাকায় এটি শুধুমাত্র UI ডেমো।</p>
+      <form id="quickRecipeForm">
+        <div class="mb-3">
+          <label class="form-label">রেসিপির নাম</label>
+          <input class="form-control" id="qTitle" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">সংক্ষিপ্ত বর্ণনা</label>
+          <textarea class="form-control" id="qDesc" rows="3" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">যোগ করুন</button>
+      </form>
+    `;
+            modal.show();
+            document.getElementById('quickRecipeForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const t = document.getElementById('qTitle').value.trim();
+                const d = document.getElementById('qDesc').value.trim();
+                if (!t || !d) return alert('সব পূরণ করুন');
+                addRecipeCard(t, d);
+                modal.hide();
+            });
+        }
+
+        function addRecipeCard(title, desc) {
+            const container = document.getElementById('recipeList');
+            const col = document.createElement('div');
+            col.className = 'col-md-4 recipe-card';
+            col.setAttribute('data-aos', 'fade-up');
+            col.innerHTML = `
+      <div class="card card-fish">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="${escapeHtml(title)}">
+        <div class="card-body">
+          <h5 class="card-title">${escapeHtml(title)}</h5>
+          <p class="excerpt">${escapeHtml(desc)}</p>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <button class="btn btn-sm btn-outline-primary" onclick="openRecipe('${escapeHtml(title)}')">রেসিপি দেখুন</button>
+            <small class="text-muted">সময়: -</small>
+          </div>
+        </div>
+      </div>
+    `;
+            container.prepend(col);
+            AOS.refresh();
+        }
+
+        // recipe modal content by key
+        function openRecipe(key) {
+            const modalEl = document.getElementById('recipeModal');
+            const modal = new bootstrap.Modal(modalEl);
+            const title = key === 'ilish-jhol' ? 'ইলিশের ঝোল' : (key === 'rui-bhaja' ? 'রুই ভাজা' : (key === 'fish-fry' ? 'মাছের ফ্রায়' : key));
+            const body = (key === 'ilish-jhol') ? `
+      <h6>উপকরণ</h6>
+      <ul><li>ইলিশ - ৬ টুকরা</li><li>পেঁয়াজ, আদা-রসুন বাটা</li><li>চিনি, লবণ, হলুদ</li></ul>
+      <h6>প্রণালী</h6>
+      <ol><li>মাছ ধুয়ে নিন, লবণ ও হলুদ লেগিয়ে রাখুন।</li><li>কড়াইতে তেল গরম করে হালকা ভাজুন।</li><li>পেঁয়াজ, আদা-রসুন ভাজে ঝোল তৈরি করুন।</li><li>মাছ মিলিয়ে ঢেকে ১০ মিনিট রান্না করুন।</li></ol>
+    ` : (key === 'rui-bhaja' ? `
+      <h6>উপকরণ</h6>
+      <ul><li>রুই - টুকরা</li><li>লবণ, হলুদ, সরষের তেল</li></ul>
+      <h6>প্রস্তুতি</h6>
+      <p>সব মশলা দিয়ে সামান্য ম্যারিনেট করে গরম তেলে ভাজুন।</p>
+    ` : (key === 'fish-fry' ? `
+      <h6>উপকরণ</h6><ul><li>মাছ (আপনার পছন্দ)</li><li>আটা, লবণ, সরিষা তেল</li></ul>
+      <h6>প্রস্তুতি</h6><p>মাছ মশলায় মাখিয়ে আটা লেগিয়ে ডীপ ফ্রাই করুন।</p>
+    ` : `<p>রেসিপি: ${escapeHtml(key)}</p>`));
+            document.getElementById('recipeModalTitle').innerText = title;
+            document.getElementById('recipeModalBody').innerHTML = body;
+            modal.show();
+        }
+
+        // generic modal usage
+        function openModal(which) {
+            const gm = new bootstrap.Modal(document.getElementById('genericModal'));
+            if (which === 'fishModal') {
+                document.getElementById('genericModalTitle').innerText = 'মাছের পূর্ণ তালিকা';
+                document.getElementById('genericModalBody').innerHTML = `
+        <ul>
+          <li>ইলিশ - পুষ্টিতে উচ্চ</li>
+          <li>রুই - বাড়ির প্রিয়</li>
+          <li>কাতলা - বড় ও মাংসল</li>
+          <li>পুঁটি, মৃগেল, কই, তেলাপিয়া, সাই - স্থানীয় বেছে নিন</li>
+        </ul>
+      `;
+            }
+            gm.show();
+        }
+
+        // recipe search filter
+        document.getElementById('recipeSearch').addEventListener('input', function (e) {
+            const q = e.target.value.toLowerCase();
+            document.querySelectorAll('#recipeList .card').forEach(card => {
+                const txt = card.innerText.toLowerCase();
+                card.parentElement.style.display = txt.includes(q) ? '' : 'none';
+            });
+        });
+
+        // small helper: close mobile nav on click
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(n => n.addEventListener('click', () => {
+            const bsCollapse = document.querySelector('.navbar-collapse');
+            if (bsCollapse.classList.contains('show')) {
+                bootstrap.Collapse.getInstance(bsCollapse).hide();
+            }
+        }));
+
+        // initial small fade in
+        window.addEventListener('load', () => {
+            document.querySelectorAll('[data-aos]').forEach(el => el.classList.add('aos-init'));
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+:root {
+  --primary: #4db2ec;
+  --secondary: #1c353d;
+  --background: #ffffff;
+  --font-family: "Inter", sans-serif;
+  --text: #212529;
+  --text-para: #5c5f71;
+  --heading: #0056b3;
+  --muted: #adb5bd;
+  --transition: 0.3s;
+}
+
+/* ------------------More News Section --------------------- */
+.categories-content {
+  padding: 20px 0;
+}
+.category-title-heading {
+  color: var(--secondary);
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.category-title-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.category-title-heading:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .category-title-heading {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.categories-content .section-top-left-title .line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #ddd;
+  border-radius: 2px;
+  max-width: 50%;
+}
+.categories-content .section-top-left-title .trending-title {
+  font-size: 30px;
+}
+.categories-content .tab-post {
+  align-items: flex-start;
+}
+
+.categories-content .tab-post img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 12px;
+  border-radius: 8px;
+}
+
+.categories-content .tab-post-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #212529;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.categories-content .tab-post-title:hover {
+  color: var(--primary);
+}
+
+.categories-content .nav-tabs .nav-link {
+  font-weight: bold;
+  color: var(--secondary) !important;
+}
+.categories-content .nav-link.active {
+  color: var(--primary) !important;
+}
+
+/* --------left blog content--------- */
+.categories-content .blog-card {
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.categories-content .blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.categories-content .blog-image {
+  width: 100%;
+  max-width: 300px;
+  height: 200px; /* or any height you prefer */
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.categories-content .blog-card:hover .blog-image {
+  transform: scale(1.03);
+}
+
+.categories-content .blog-content {
+  flex: 1;
+}
+
+.categories-content .blog-meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+.categories-content .blog-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.categories-content .blog-title a {
+  color: #212529;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.categories-content .blog-title a:hover {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+/* .categories-content .blog-title a {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #212529;
+  line-height: 1.4 !important;
+}
+
+.categories-content .blog-title a:hover {
+  color: var(--primary);
+  cursor: pointer;
+  transition: color 0.3s ease;
+} */
+
+/* .categories-content .blog-title a {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #212529;
+  line-height: 1.2 !important;
+}
+
+.categories-content .blog-title a:hover {
+  color: var(--primary);
+  cursor: pointer;
+  transition: color 0.3s ease;
+} */
+
+.categories-content .blog-desc {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.categories-content .animate-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .categories-content .blog-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .categories-content .blog-image {
+    height: 160px;
+  }
+}
