@@ -565,6 +565,48 @@ ul li {
 }
 
 /* =============Blog section=================== */
+/* =============Counter section=================== */
+.counter-section {
+  position: relative;
+  background: url("/assets/images/bg.jpg") no-repeat center center/cover;
+  color: #fff;
+}
+
+.counter-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 3, 0.8), rgba(0, 0, 0, 0.8));
+}
+
+.counter-box {
+  position: relative;
+  z-index: 2;
+}
+
+.counter-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.counter-box p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+/* =============Contact Section=================== */
+
+.contact-section {
+  background: var(--light);
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 12px;
+}
 
 /* .card-fish {
   border: 0;
@@ -658,4 +700,83 @@ footer {
 .excerpt {
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+/* ============Footer Section ====================== */
+.site-footer {
+  background: #03243a;
+  color: #fff;
+  padding: 60px 0 30px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.site-footer .footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #00c2ff;
+}
+
+.site-footer .footer-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #e0f7fa;
+}
+
+.site-footer .footer-links li {
+  margin-bottom: 10px;
+}
+
+.site-footer .footer-links a {
+  color: #ddd;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.site-footer .footer-links a:hover {
+  color: #00c2ff;
+}
+
+.site-footer .info-box p {
+  margin-bottom: 8px;
+}
+
+.site-footer .social-links a {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-right: 12px;
+  color: #ddd;
+  transition: color 0.3s;
+}
+
+.site-footer .social-links a:hover {
+  color: #00c2ff;
+}
+
+.site-footer .newsletter-form input {
+  flex: 1;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: none;
+}
+
+.site-footer .newsletter-form button {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  background: #00c2ff;
+  border: none;
+  color: #fff;
+}
+
+.site-footer hr {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

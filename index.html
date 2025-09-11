@@ -328,6 +328,48 @@
     </section>
 
 
+    <!-- COUNTER SECTION -->
+    <section id="counters" class="counter-section text-white py-5">
+        <div class="overlay"></div>
+        <div class="container position-relative text-center">
+            <div class="row gy-4">
+
+                <!-- Counter 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="counter-box p-3">
+                        <h2 class="counter fw-bold" data-target="120">0</h2>
+                        <p>🐟 মাছের প্রজাতি</p>
+                    </div>
+                </div>
+
+                <!-- Counter 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="counter-box p-3">
+                        <h2 class="counter fw-bold" data-target="85">0</h2>
+                        <p>🍲 রেসিপি</p>
+                    </div>
+                </div>
+
+                <!-- Counter 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="counter-box p-3">
+                        <h2 class="counter fw-bold" data-target="4500">0</h2>
+                        <p>👨‍👩‍👧‍👦 কমিউনিটি মেম্বার</p>
+                    </div>
+                </div>
+
+                <!-- Counter 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="counter-box p-3">
+                        <h2 class="counter fw-bold" data-target="12">0</h2>
+                        <p>🏆 এওয়ার্ড</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- BLOG / COMMUNITY -->
     <section id="blog" class="py-5 blog-section">
         <div class="container" data-aos="fade-up">
@@ -392,44 +434,53 @@
 
 
     <!-- CONTACT -->
-    <section id="contact" class="py-5">
-        <div class="container" data-aos="fade-up">
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <h3 class="section-title">যোগাযোগ করুন</h3>
-                    <p class="mb-4">প্রশ্ন, প্রস্তাব বা ব্যবসায়িক সুযোগ—নিচের ফর্মে লিখে পাঠান।</p>
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-primary">যোগাযোগ করুন</h2>
+                <p class="text-muted">প্রশ্ন, প্রস্তাব বা ব্যবসায়িক সুযোগ—নিচের ফর্মে লিখে পাঠান।</p>
+            </div>
 
-                    <form id="contactForm" class="needs-validation" novalidate>
+            <div class="row g-4 align-items-stretch">
+                <!-- Contact Form -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <form id="contactForm" class="p-4 bg-white rounded-3 shadow-sm h-100">
                         <div class="mb-3">
-                            <label class="form-label">আপনার নাম</label>
-                            <input type="text" class="form-control" id="name" required>
-                            <div class="invalid-feedback">আপনার নাম দিন।</div>
+                            <label for="name" class="form-label fw-semibold">আপনার নাম</label>
+                            <input type="text" class="form-control" id="name" placeholder="নাম লিখুন" required>
                         </div>
+
                         <div class="mb-3">
-                            <label class="form-label">ইমেইল</label>
-                            <input type="email" class="form-control" id="email" required>
-                            <div class="invalid-feedback">সঠিক ইমেইল দিন।</div>
+                            <label for="email" class="form-label fw-semibold">ইমেইল</label>
+                            <input type="email" class="form-control" id="email" placeholder="example@mail.com" required>
                         </div>
+
                         <div class="mb-3">
-                            <label class="form-label">বার্তা</label>
-                            <textarea class="form-control" id="message" rows="4" required></textarea>
-                            <div class="invalid-feedback">বার্তা লিখুন।</div>
+                            <label for="message" class="form-label fw-semibold">বার্তা</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="আপনার বার্তা লিখুন..."
+                                required></textarea>
                         </div>
-                        <button class="btn btn-primary" type="submit">পাঠান</button>
+
+                        <button type="submit" class="btn-custom primary px-4">📨 পাঠান</button>
                     </form>
-
                 </div>
-                <div class="col-md-6">
-                    <h5>আমাদের ঠিকানা</h5>
-                    <p class="mb-1">Fishfy, ঢাকা, বাংলাদেশ</p>
-                    <p class="mb-1">মোবাইল: +880 1XXXXXXXXX</p>
-                    <p class="mb-4">ইমেইল: info@fishfy.example</p>
 
-                    <div class="ratio ratio-16x9">
-                        <!-- Map placeholder (swap iframe src later) -->
-                        <iframe
-                            src="https://maps.google.com/maps?q=Dhaka%20Bangladesh&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            aria-hidden="false" tabindex="0"></iframe>
+                <!-- Contact Info -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="p-4 bg-white rounded-3 shadow-sm mb-4 h-100 d-flex flex-column justify-content-between">
+                        <div class="info-box mb-3">
+                            <h3 class="text-primary fw-bold mb-3">আমাদের ঠিকানা</h3>
+                            <p class="mb-2">🏠 Fishfy, ঢাকা, বাংলাদেশ</p>
+                            <p class="mb-2">📞 +880 1XXXXXXXXX</p>
+                            <p class="mb-0">✉️ info@fishfy.example</p>
+                        </div>
+
+                        <div class="map-box mt-3">
+                            <iframe
+                                src="https://maps.google.com/maps?q=Dhaka%20Bangladesh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen="" loading="lazy"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -437,32 +488,89 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Fishfy</h5>
-                    <p class="mb-0">মাছের ভালবাসা ও তথ্য—সবই বাংলায়। আমাদের সাথে থাকুন, শিখুন ও ভাগ করুন।</p>
+            <div class="row gy-5">
+
+                <!-- About Section -->
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">🐟 Fishfy</h5>
+                    <p>
+                        Fishfy হচ্ছে মাছ প্রেমীদের জন্য এক আধুনিক প্ল্যাটফর্ম। এখানে আপনি পাবেন মাছের তথ্য, রান্নার
+                        রেসিপি, স্বাস্থ্য ও পুষ্টি টিপস, এবং একটি প্রাণবন্ত কমিউনিটি। আমাদের লক্ষ্য: প্রতিটি মানুষকে
+                        মাছের সঠিক জ্ঞান ও সুস্বাদু রেসিপি পৌঁছে দেওয়া।
+                    </p>
+                    <p>আমাদের সাথে থাকুন, শিখুন ও ভাগ করুন।</p>
                 </div>
-                <div class="col-md-4">
-                    <h6>ত্বরিত লিঙ্ক</h6>
-                    <ul class="list-unstyled">
-                        <li><a class="text-white" href="#recipes">রেসিপি</a></li>
-                        <li><a class="text-white" href="#fish-info">মাছের তথ্য</a></li>
-                        <li><a class="text-white" href="#blog">ব্লগ</a></li>
+
+                <!-- Quick Links -->
+                <div class="col-md-6 col-lg-3">
+                    <h6 class="footer-subtitle">🔗 গুরুত্বপূর্ণ লিঙ্ক</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#home">🏠 হোম</a></li>
+                        <li><a href="#recipes">🍲 রেসিপি</a></li>
+                        <li><a href="#fish-info">🐠 মাছের তথ্য</a></li>
+                        <li><a href="#blog">📝 ব্লগ</a></li>
+                        <li><a href="#community">👥 কমিউনিটি</a></li>
+                        <li><a href="#about">ℹ️ আমাদের সম্পর্কে</a></li>
+                        <li><a href="#contact">📞 যোগাযোগ</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h6>সোশ্যাল</h6>
-                    <p class="mb-0">ফেসবুক: <a class="text-white" href="https://www.facebook.com/fishfy.kfl"
-                            target="_blank">Fishfy</a></p>
+
+                <!-- Services / Resources -->
+                <div class="col-md-6 col-lg-3">
+                    <h6 class="footer-subtitle">💡 সেবা / রিসোর্স</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Fresh Fish Online</a></li>
+                        <li><a href="#">Weekly Recipe Tips</a></li>
+                        <li><a href="#">Fish Storage Guide</a></li>
+                        <li><a href="#">Nutrition & Health Info</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Subscribe Newsletter</a></li>
+                    </ul>
                 </div>
+
+                <!-- Contact & Social -->
+                <div class="col-md-6 col-lg-3">
+                    <h6 class="footer-subtitle">📞 যোগাযোগ ও সোশ্যাল</h6>
+                    <div class="info-box mb-3">
+                        <p>📍 বরিশাল, বাংলাদেশ</p>
+                        <p>✉️ fishfy.bd@gmail.com</p>
+                        <p>📞 +880 1234-567890</p>
+                        <p>🕒 সময়: সোমবার - শনিবার, ৯AM - ৬PM</p>
+                    </div>
+
+                    <h6 class="footer-subtitle">🌐 আমাদের সাথে যুক্ত থাকুন</h6>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/fishfy.kfl" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+
+                    <h6 class="footer-subtitle mt-3">📰 নিউজলেটার সাবস্ক্রিপশন</h6>
+                    <form class="newsletter-form d-flex">
+                        <input type="email" class="form-control me-2" placeholder="ইমেইল লিখুন..." required>
+                        <button class="btn btn-primary" type="submit">সাবস্ক্রাইব</button>
+                    </form>
+                </div>
+
             </div>
 
-            <hr class="my-4" style="border-color:rgba(255,255,255,0.08)">
-            <div class="text-center small">© ২০২৫ Fishfy • All rights reserved</div>
+            <hr class="my-4" />
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    © ২০২৫ <strong>Fishfy</strong> • All rights reserved
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    ডিজাইন ও ডেভেলপ করা হয়েছে <a href="#" class="text-white text-decoration-underline">Fishfy Team</a>
+                    দ্বারা
+                </div>
+            </div>
         </div>
     </footer>
+
+
 
     <!-- Floating Chat / CTA -->
     <div class="fab" id="fabBtn" title="নতুন রেসিপি">
@@ -536,6 +644,8 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <!-- Counter Js -->
+    <script src="assets/js/counter.js"></script>
 
     <script>
         AOS.init({ duration: 700, once: true });
