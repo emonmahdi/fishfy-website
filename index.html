@@ -183,22 +183,25 @@
 
 
     <!-- FISH INFO (page) -->
-    <section id="fish-info" class="py-5 bg-light">
+    <section id="fish-info" class="fish-info-section py-5">
         <div class="container" data-aos="fade-up">
-            <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <!-- Header -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5">
                 <div>
-                    <h3 class="section-title">মাছের তথ্য</h3>
-                    <p class="mb-0">বাংলাদেশে প্রচলিত গুরুত্বপূর্ণ মাছের পরিচিতি ও পুষ্টিগুণ</p>
+                    <h3 class="section-title mb-2">🐟 মাছের তথ্য</h3>
+                    <p class="text-muted mb-0">বাংলাদেশে প্রচলিত গুরুত্বপূর্ণ মাছের পরিচিতি ও পুষ্টিগুণ</p>
                 </div>
-                <div>
-                    <button class="btn btn-outline-primary" onclick="openModal('fishModal')">মাছের তালিকা দেখুন</button>
+                <div class="mt-3 mt-md-0">
+                    <button class="btn-custom-outline" onclick="openModal('fishModal')">মাছের তালিকা দেখুন</button>
                 </div>
             </div>
 
+            <!-- Fish Cards -->
             <div class="row g-4">
                 <!-- card 1 -->
                 <div class="col-md-4" data-aos="zoom-in">
-                    <div class="card h-100 border-0 shadow-sm">
+                    <div class="fish-card h-100">
                         <img src="assets/images/fish/fish-2.jpg" class="card-img-top" alt="ilish">
                         <div class="card-body">
                             <h5 class="card-title">ইলিশ (Ilish)</h5>
@@ -212,7 +215,7 @@
 
                 <!-- card 2 -->
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="card h-100 border-0 shadow-sm">
+                    <div class="fish-card h-100">
                         <img src="assets/images/fish/fish-1.jpeg" class="card-img-top" alt="rui">
                         <div class="card-body">
                             <h5 class="card-title">রুই (Rui)</h5>
@@ -224,7 +227,7 @@
 
                 <!-- card 3 -->
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="card h-100 border-0 shadow-sm">
+                    <div class="fish-card h-100">
                         <img src="assets/images/fish/fish-3.avif" class="card-img-top" alt="katla">
                         <div class="card-body">
                             <h5 class="card-title">কাতলা (Katla)</h5>
@@ -234,145 +237,159 @@
                 </div>
             </div>
 
-            <hr class="my-5">
+            <!-- Divider -->
+            <div class="my-5 text-center">
+                <hr class="divider">
+            </div>
 
+            <!-- Extra Info -->
             <div class="row g-4">
                 <div class="col-md-6" data-aos="fade-right">
-                    <h5>কাঁচা মাছ সংরক্ষণ টিপস</h5>
-                    <ul>
+                    <h5 class="fw-bold text-primary">কাঁচা মাছ সংরক্ষণ টিপস</h5>
+                    <ul class="tips-list">
                         <li>মাছ কেনার পর দ্রুত ফ্রিজে রাখুন — ৪°C বা নীচে ভালো থাকে।</li>
-                        <li>পাকস্থলীর জন্য শিশুদের рыб গেলে ভাজা করা বেছে নিন, বিশেষ রোগীর জন্য পরামর্শ নিন।</li>
+                        <li>শিশুদের জন্য ভাজা মাছ ভালো; বিশেষ রোগীর জন্য চিকিৎসকের পরামর্শ নিন।</li>
                         <li>মাছের দুর্গন্ধ থাকলে খেয়াল করুন — সতেজ মাছ হালকা সামুদ্রিক গন্ধ রাখে।</li>
                     </ul>
                 </div>
                 <div class="col-md-6" data-aos="fade-left">
-                    <h5>পুষ্টি: কোন মাছ কিসে ভালো</h5>
+                    <h5 class="fw-bold text-primary">পুষ্টি: কোন মাছ কিসে ভালো</h5>
                     <p class="excerpt mb-0">ইলিশ — ওমেগা-৩; রুই ও কাতলা — ভালো প্রোটিন; স্যামন (বহির্গত) — উচ্চতর
                         ওমেগা-৩।</p>
                 </div>
             </div>
+
         </div>
     </section>
-
     <!-- RECIPES -->
-    <section id="recipes" class="py-5">
+    <section id="recipes" class="py-5 recipes-section">
         <div class="container" data-aos="fade-up">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <h3 class="section-title">রেসিপি</h3>
-                    <p class="mb-0">চেয়ে দেখুন জনপ্রিয় ও সহজ রেসিপি — প্রতিটি রেসিপিতে উপকরণ ও ধাপে ধাপে নির্দেশাবলী
-                        দেওয়া আছে।</p>
+            <!-- Header -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5">
+                <div class="mb-3 mb-md-0">
+                    <h3 class="section-title">🍲 রেসিপি</h3>
+                    <p class="section-subtitle mb-0">
+                        জনপ্রিয় ও সহজ রেসিপি — প্রতিটি রেসিপিতে উপকরণ ও ধাপে ধাপে নির্দেশাবলী দেওয়া আছে।
+                    </p>
                 </div>
                 <div>
-                    <input id="recipeSearch" class="form-control" style="min-width:220px"
-                        placeholder="রেসিপি খুঁজুন...">
+                    <input id="recipeSearch" class="recipe-search" type="text" placeholder="🔍 রেসিপি খুঁজুন...">
                 </div>
             </div>
 
+            <!-- Recipe Cards -->
             <div class="row g-4" id="recipeList">
-                <!-- recipe card template -->
-                <div class="col-md-4 recipe-card" data-aos="fade-up">
-                    <div class="card card-fish">
-                        <img src="assets/images/recipe/recipe-1.webp" class="card-img-top" alt="recipe1">
-                        <div class="card-body">
+                <!-- card 1 -->
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card card-fish h-100">
+                        <img src="assets/images/recipe/recipe-1.webp" alt="ইলিশের ঝোল" class="card-img-top">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">ইলিশের ঝোল</h5>
-                            <p class="excerpt">সরল, সুস্বাদু এবং পরিবারে সবার পছন্দ — ইলিশের মসলা ঝোল।</p>
+                            <p class="excerpt flex-grow-1">সরল, সুস্বাদু এবং পরিবারে সবার পছন্দ — ইলিশের মসলা ঝোল।</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
-                                <button class="btn btn-sm btn-outline-primary" onclick="openRecipe('ilish-jhol')">রেসিপি
-                                    দেখুন</button>
-                                <small class="text-muted">প্রস্তুতিতে সময়: ২৫ মিনিট</small>
+                                <button class="btn-recipe" onclick="openRecipe('ilish-jhol')">রেসিপি দেখুন</button>
+                                <small class="text-muted">⏱ ২৫ মিনিট</small>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 recipe-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card card-fish">
-                        <img src="assets/images/recipe/recipe-2.jpg" class="card-img-top" alt="recipe2">
-                        <div class="card-body">
+                <!-- card 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card card-fish h-100">
+                        <img src="assets/images/recipe/recipe-2.jpg" alt="রুই ভাজা" class="card-img-top">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">রুই ভাজা</h5>
-                            <p class="excerpt">কম সময়, কম মশলা—পারফেক্ট ভর্তা ও ভাতের সাথে।</p>
+                            <p class="excerpt flex-grow-1">কম সময়, কম মশলা—পারফেক্ট ভর্তা ও ভাতের সাথে।</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
-                                <button class="btn btn-sm btn-outline-primary" onclick="openRecipe('rui-bhaja')">রেসিপি
-                                    দেখুন</button>
-                                <small class="text-muted">প্রস্তুতিতে সময়: ২০ মিনিট</small>
+                                <button class="btn-recipe" onclick="openRecipe('rui-bhaja')">রেসিপি দেখুন</button>
+                                <small class="text-muted">⏱ ২০ মিনিট</small>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 recipe-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card card-fish">
-                        <img src="assets/images/recipe/recipe-3.jpg" class="card-img-top" alt="recipe3">
-                        <div class="card-body">
+                <!-- card 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card card-fish h-100">
+                        <img src="assets/images/recipe/recipe-3.jpg" alt="মাছের ফ্রায়" class="card-img-top">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">মাছের ফ্রায়</h5>
-                            <p class="excerpt">কেক, হালকা মসলা—বাচ্চাদের প্রিয় ফ্রায়।</p>
+                            <p class="excerpt flex-grow-1">হালকা মসলা দিয়ে তৈরি বাচ্চাদের প্রিয় ফ্রায়।</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
-                                <button class="btn btn-sm btn-outline-primary" onclick="openRecipe('fish-fry')">রেসিপি
-                                    দেখুন</button>
-                                <small class="text-muted">প্রস্তুতিতে সময়: ৩০ মিনিট</small>
+                                <button class="btn-recipe" onclick="openRecipe('fish-fry')">রেসিপি দেখুন</button>
+                                <small class="text-muted">⏱ ৩০ মিনিট</small>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
+
 
     <!-- BLOG / COMMUNITY -->
-    <section id="blog" class="py-5 bg-light">
+    <section id="blog" class="py-5 blog-section">
         <div class="container" data-aos="fade-up">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <h3 class="section-title">ব্লগ ও কমিউনিটি</h3>
-                    <p class="mb-0">মাছ সংক্রান্ত গল্প, রান্নার টিপস এবং ব্যবহারকারীর রিভিউ।</p>
+            <!-- Header -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5">
+                <div class="mb-3 mb-md-0">
+                    <h3 class="section-title">📝 ব্লগ ও কমিউনিটি</h3>
+                    <p class="section-subtitle mb-0">মাছ সংক্রান্ত গল্প, রান্নার টিপস এবং ব্যবহারকারীর রিভিউ পড়ুন ও
+                        শেয়ার করুন।</p>
                 </div>
                 <div>
-                    <button class="btn btn-outline-success" onclick="openModal('postModal')">নতুন পোস্ট করুন</button>
+                    <button class="btn-new-post" onclick="openModal('postModal')">+ নতুন পোস্ট করুন</button>
                 </div>
             </div>
 
+            <!-- Blog Cards -->
             <div class="row g-4">
+                <!-- card 1 -->
                 <div class="col-md-4" data-aos="fade-up">
-                    <div class="card h-100">
-                        <div class="card-body">
+                    <div class="card card-blog h-100">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">বিচিত্র মাছের উৎসব: আমার গ্রাম</h5>
-                            <p class="excerpt">গ্রামের নদীর ধারে প্রতিবারেই আমরা ছোটো উৎসব করি—ইলিশ ভাজা, মিষ্টি পোলাও
-                                আর উঠোনে হাসি।</p>
-                            <a href="#" class="stretched-link">পুরোটা পড়ুন</a>
-                        </div>
-                        <div class="card-footer text-muted">১০ সেপ্টেম্বর, ২০২৫</div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">বাড়িতে মাছ সংরক্ষণ: সহজ টিপস</h5>
-                            <p class="excerpt">মাছ ঠাণ্ডা রাখার সঠিক পদ্ধতি ও বাজার থেকে কিভাবে তাজা মাছ চিনব—জানুন।</p>
-                            <a href="#" class="stretched-link">পুরোটা পড়ুন</a>
-                        </div>
-                        <div class="card-footer text-muted">০১ সেপ্টেম্বর, ২০২৫</div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">প্রিয় মাছ: আপনার মতামত শেয়ার করুন</h5>
-                            <p class="excerpt">আপনি কোন মাছ সবচেয়ে পছন্দ করেন? কোন রেসিপি আপনার ফেভারিট? কমেন্ট করুন।
+                            <p class="excerpt flex-grow-1">
+                                গ্রামের নদীর ধারে প্রতিবারেই আমরা ছোটো উৎসব করি—ইলিশ ভাজা, মিষ্টি পোলাও আর উঠোনে হাসি।
                             </p>
-                            <a href="#" class="stretched-link">পুরোটা পড়ুন</a>
+                            <a href="#" class="read-more mt-2">পুরোটা পড়ুন →</a>
                         </div>
-                        <div class="card-footer text-muted">২৫ আগস্ট, ২০২৫</div>
+                        <div class="card-footer text-muted">📅 ১০ সেপ্টেম্বর, ২০২৫</div>
                     </div>
                 </div>
 
+                <!-- card 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card card-blog h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">বাড়িতে মাছ সংরক্ষণ: সহজ টিপস</h5>
+                            <p class="excerpt flex-grow-1">
+                                মাছ ঠাণ্ডা রাখার সঠিক পদ্ধতি ও বাজার থেকে কিভাবে তাজা মাছ চিনব—জানুন।
+                            </p>
+                            <a href="#" class="read-more mt-2">পুরোটা পড়ুন →</a>
+                        </div>
+                        <div class="card-footer text-muted">📅 ০১ সেপ্টেম্বর, ২০২৫</div>
+                    </div>
+                </div>
+
+                <!-- card 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card card-blog h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">প্রিয় মাছ: আপনার মতামত শেয়ার করুন</h5>
+                            <p class="excerpt flex-grow-1">
+                                আপনি কোন মাছ সবচেয়ে পছন্দ করেন? কোন রেসিপি আপনার ফেভারিট? কমেন্ট করুন।
+                            </p>
+                            <a href="#" class="read-more mt-2">পুরোটা পড়ুন →</a>
+                        </div>
+                        <div class="card-footer text-muted">📅 ২৫ আগস্ট, ২০২৫</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- CONTACT -->
     <section id="contact" class="py-5">

@@ -286,13 +286,291 @@ ul li {
   margin-top: 10px;
 }
 
-/* =============Hero Css End=================== */
+/* ==========Fish Info ================= */
 
+/* Section Background */
+.fish-info-section {
+  /* background: linear-gradient(135deg, #f0faff, #ffffff); */
+  background: #ddd;
+}
+
+/* Section Title */
+.section-title {
+  font-weight: 700;
+  color: #11698e;
+  font-size: 1.8rem;
+}
+
+/* Custom Outline Button */
+.btn-custom-outline {
+  background: transparent;
+  border: 2px solid #1daadf;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #1daadf;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.btn-custom-outline:hover {
+  background: #1daadf;
+  color: #fff;
+}
+
+/* Fish Card */
+.fish-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.fish-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* Image uniform size */
+.fish-card img {
+  width: 100%;
+  height: 240px; /* সব ইমেজ সমান উচ্চতা */
+  object-fit: contain; /* ইমেজ কাটা বা বিকৃত হবে না */
+  background: #f5f9fc; /* ফাঁকা অংশে হালকা ব্যাকগ্রাউন্ড */
+  padding: 6px; /* সুন্দর ফ্রেম ইফেক্ট */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Card body uniform fill */
+.fish-card .card-body {
+  flex: 1; /* সব কার্ড সমান উচ্চতায় stretch হবে */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Title */
+.fish-card .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0d5673; /* ফিশফাই ওয়েবসাইটের সাথে মানানসই ব্লু শেড */
+  margin-bottom: 10px;
+}
+
+/* Excerpt */
+.fish-card .excerpt {
+  flex-grow: 1;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* Tip text */
+.fish-card p strong {
+  color: #0b7a75;
+}
+
+/* Divider */
+.divider {
+  width: 80px;
+  height: 3px;
+  background: #1daadf;
+  border: none;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Tips List */
+.tips-list {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+.tips-list li {
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =============Recipes Section=================== */
+/* Section background */
+.recipes-section {
+  background: #fff;
+}
+
+/* Section title */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1daadf;
+}
+
+.section-subtitle {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Search box */
+.recipe-search {
+  min-width: 240px;
+  padding: 10px 14px;
+  border: 2px solid #1daadf;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+.recipe-search:focus {
+  outline: none;
+  border-color: #1488b6;
+  box-shadow: 0 0 8px rgba(29, 170, 223, 0.3);
+}
+
+/* Recipe card */
 .card-fish {
   border: 0;
   border-radius: 14px;
-  box-shadow: 0 8px 30px rgba(3, 37, 65, 0.08);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(3, 37, 65, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
+.card-fish:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(3, 37, 65, 0.15);
+}
+.card-fish img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+.card-fish .card-body {
+  padding: 20px;
+}
+
+/* Title & text */
+.card-fish .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #11698e;
+  margin-bottom: 10px;
+}
+.card-fish .excerpt {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Custom button */
+.btn-recipe {
+  padding: 6px 14px;
+  background: #1daadf;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-recipe:hover {
+  background: #1488b6;
+}
+
+/* =============Blog section=================== */
+/* Blog Section */
+.blog-section {
+  background: #ddd;
+}
+
+/* Title & Subtitle */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1daadf;
+}
+.section-subtitle {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* New Post Button */
+.btn-new-post {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #1daadf;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-new-post:hover {
+  background: #1488b6;
+  transform: translateY(-2px);
+}
+
+/* Blog Cards */
+.card-blog {
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(3, 37, 65, 0.08);
+  transition: all 0.3s ease;
+}
+.card-blog:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(3, 37, 65, 0.15);
+}
+.card-blog .card-body {
+  padding: 20px;
+}
+.card-blog .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #11698e;
+  margin-bottom: 10px;
+}
+.card-blog .excerpt {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+.card-blog .card-footer {
+  background: #f1f5f9;
+  font-size: 0.85rem;
+  padding: 12px 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Read More link */
+.read-more {
+  color: #1daadf;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.read-more:hover {
+  color: #1488b6;
+  text-decoration: underline;
+}
+
+/* =============Blog section=================== */
+
+/* .card-fish {
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(3, 37, 65, 0.08);
+} */
 
 .badge-cat {
   background: rgba(255, 255, 255, 0.12);
