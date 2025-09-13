@@ -20,9 +20,246 @@
 
     <!-- Google Fonts (Bangla-friendly) -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bangla:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <!-- <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
 
+        .testimonial-section {
+            padding: 80px 20px;
+            background: #ffffff;
+            text-align: center;
+        }
 
+        .testimonial-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 50px;
+        }
+
+        .swiper {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .swiper-slide {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .swiper-slide:hover {
+            transform: translateY(-6px);
+        }
+
+        .testimonial-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #3b82f6;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #374151;
+            font-style: italic;
+            max-width: 600px;
+        }
+
+        /* Swiper Arrows */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #fff;
+            background: #3b82f6;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: #2563eb;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Swiper Pagination */
+        .swiper-pagination-bullet {
+            background: #d1d5db;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #3b82f6;
+            width: 14px;
+            height: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .swiper-slide {
+                padding: 30px 20px;
+            }
+
+            .testimonial-text {
+                font-size: 0.95rem;
+            }
+        }
+    </style> -->
+    <style>
+        /* Section background & title */
+        .testimonial-slider-section {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        }
+
+        .testimonial-slider-section .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #3b82f6;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-slider-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .testimonial-slider-section p.text-muted {
+            max-width: 600px;
+            margin: auto;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonial Card */
+        .carousel-item .d-flex {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .carousel-item.active .d-flex {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .carousel-item img {
+            border: 4px solid #3b82f6;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .carousel-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .carousel-item h6 {
+            font-weight: 600;
+            color: #111827;
+            margin-top: 10px;
+        }
+
+        .carousel-item small {
+            color: #6b7280;
+        }
+
+        /* Controls (arrows) */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-size: 50% 50%;
+            filter: invert(1);
+            /* makes the arrow white */
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #3b82f6;
+            border-radius: 50%;
+            opacity: 0.9;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background: #2563eb;
+            /* transform: scale(1.1); */
+        }
+
+        /* Indicators (dots) */
+        .carousel-indicators {
+            bottom: -40px !important;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 6px;
+            /* margin-top: 80px; */
+            background-color: #d1d5db;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicators .active {
+            background-color: #3b82f6;
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .carousel-item .d-flex {
+                padding: 30px 20px !important;
+            }
+
+            .testimonial-slider-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 
 
 </head>
@@ -179,6 +416,191 @@
             </div>
         </div>
     </section>
+
+    <!-- MISSION & VISION SECTION -->
+    <section class="mission-section py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col">
+                    <p class="section-title">আমাদের উদ্দেশ্য</p>
+                    <!-- <h2 class="fw-bold">Fishfy এর <span class="text-primary">মিশন ও ভিশন</span></h2> -->
+                    <p class="text-muted">আমরা বিশ্বাস করি মাছ শুধু খাবার নয়, এটি আমাদের সংস্কৃতি, অর্থনীতি এবং
+                        স্বাস্থ্যের একটি গুরুত্বপূর্ণ অংশ।</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Mission -->
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="p-4 shadow rounded-3 bg-white h-100">
+                        <h4 class="mb-3">🎯 আমাদের মিশন</h4>
+                        <p>বাংলাদেশের মাছের বৈচিত্র্য, পুষ্টি এবং ঐতিহ্য সম্পর্কে মানুষকে সচেতন করা এবং একটি
+                            আধুনিক ডিজিটাল প্ল্যাটফর্ম তৈরি করা।</p>
+                    </div>
+                </div>
+                <!-- Vision -->
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="p-4 shadow rounded-3 bg-white h-100">
+                        <h4 class="mb-3">🌍 আমাদের ভিশন</h4>
+                        <p>বাংলাদেশ ও বিশ্বজুড়ে একটি নেতৃস্থানীয় মাছ বিষয়ক প্ল্যাটফর্ম হয়ে উঠা, যেখানে জ্ঞান,
+                            রেসিপি ও কমিউনিটি একসাথে যুক্ত থাকবে।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TEAM SECTION -->
+    <section class="team-section py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col">
+                    <p class="section-title">আমাদের টিম</p>
+                    <!-- <h2 class="fw-bold">Fishfy এর <span class="text-primary">পর্দার আড়ালে থাকা মানুষগুলো</span></h2> -->
+                    <p class="text-muted">যাদের প্রচেষ্টা Fishfy কে একটি সফল কমিউনিটি প্ল্যাটফর্মে পরিণত করেছে।</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Team Member 1 -->
+                <div class="col-md-4" data-aos="zoom-in">
+                    <div class="team-card shadow p-4 rounded-3 text-center bg-white">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Team Member"
+                            class="img-fluid rounded-circle mb-3" width="120">
+                        <h5 class="mb-1">সাইফুল ইসলাম</h5>
+                        <p class="text-muted">Founder & CEO</p>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-facebook me-2"></i></a>
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="team-card shadow p-4 rounded-3 text-center bg-white">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="Team Member"
+                            class="img-fluid rounded-circle mb-3" width="120">
+                        <h5 class="mb-1">রাবেয়া আক্তার</h5>
+                        <p class="text-muted">Community Manager</p>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-facebook me-2"></i></a>
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="team-card shadow p-4 rounded-3 text-center bg-white">
+                        <img src="https://i.pravatar.cc/150?img=13" alt="Team Member"
+                            class="img-fluid rounded-circle mb-3" width="120">
+                        <h5 class="mb-1">রহিম উদ্দিন</h5>
+                        <p class="text-muted">Recipe Specialist</p>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-facebook me-2"></i></a>
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION SECTION -->
+    <section class="cta-section py-5 text-white"
+        style="background: linear-gradient(rgba(3,36,58,0.8), rgba(3,36,58,0.8)), url('assets/images/cta-bg.jpg') center/cover no-repeat;">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-3" data-aos="zoom-in">আজই Fishfy কমিউনিটিতে যোগ দিন</h2>
+            <p class="lead mb-4" data-aos="zoom-in" data-aos-delay="200">
+                মাছের জ্ঞান, সুস্বাদু রেসিপি ও প্রাণবন্ত কমিউনিটির অংশ হতে এখনই সাইন আপ করুন।
+            </p>
+            <a href="#contact" class="btn btn-warning btn-lg shadow" data-aos="zoom-in" data-aos-delay="400">
+                👉 এখনই যোগ দিন
+            </a>
+        </div>
+    </section>
+
+
+    <!-- TESTIMONIAL SLIDER SECTION -->
+    <section class="testimonial-slider-section py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col">
+                    <p class="section-title">আমাদের ব্যবহারকারীরা যা বলেন</p>
+                    <h2 class="fw-bold">Fishfy <span class="text-primary">কমিউনিটি রিভিউ</span></h2>
+                    <p class="text-muted">আমাদের প্ল্যাটফর্মে যোগ দেওয়ার পর ব্যবহারকারীরা কীভাবে উপকৃত হয়েছেন</p>
+                </div>
+            </div>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://i.pravatar.cc/150?img=12" class="rounded-circle mb-3 shadow" width="100"
+                                alt="User 1">
+                            <p class="fst-italic mb-3">"Fishfy আমাকে মাছ রান্নার নতুন নতুন রেসিপি শিখতে সাহায্য করেছে।"
+                            </p>
+                            <h6 class="mb-0">তানিয়া রহমান</h6>
+                            <small class="text-muted">ঢাকা</small>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://i.pravatar.cc/150?img=47" class="rounded-circle mb-3 shadow" width="100"
+                                alt="User 2">
+                            <p class="fst-italic mb-3">"এখান থেকে মাছ সংরক্ষণের দারুণ টিপস পেয়েছি। খুবই কাজে লেগেছে।"
+                            </p>
+                            <h6 class="mb-0">রাকিব হোসেন</h6>
+                            <small class="text-muted">চট্টগ্রাম</small>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="d-flex flex-column align-items-center text-center p-4">
+                            <img src="https://i.pravatar.cc/150?img=5" class="rounded-circle mb-3 shadow" width="100"
+                                alt="User 3">
+                            <p class="fst-italic mb-3">"Fishfy কমিউনিটি আমাকে নতুন বন্ধু এবং অভিজ্ঞতা দিয়েছে।"</p>
+                            <h6 class="mb-0">মাহমুদুল ইসলাম</h6>
+                            <small class="text-muted">বরিশাল</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+                </button>
+
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
+                        class="active bg-dark"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                        class="bg-dark"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+                        class="bg-dark"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
 
 
     <!-- FOOTER -->
@@ -340,189 +762,35 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <!-- Counter Js -->
     <script src="assets/js/counter.js"></script>
+    <script src="assets/js/script.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script>
-        AOS.init({ duration: 700, once: true });
-
-        // Simple single-page active link highlighting on scroll
-        const sections = document.querySelectorAll('section, header');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        function setActiveLink() {
-            let index = sections.length;
-            while (--index && window.scrollY + 120 < sections[index].offsetTop) { }
-            navLinks.forEach((link) => link.classList.remove('active'));
-            const id = sections[index].id;
-            const activeLink = Array.from(navLinks).find(l => l.getAttribute('href') === '#' + id);
-            if (activeLink) activeLink.classList.add('active');
-        }
-        setActiveLink();
-        window.addEventListener('scroll', setActiveLink);
-
-        // CONTACT FORM validation and pretend send
-        (function () {
-            const form = document.getElementById('contactForm');
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                if (!form.checkValidity()) {
-                    form.classList.add('was-validated');
-                    return;
-                }
-                // simulate send
-                alert('ধন্যবাদ! আপনার বার্তা প্রেরণ করা হয়েছে। আমরা দ্রুত উত্তর দেব।');
-                form.reset();
-                form.classList.remove('was-validated');
-            });
-        })();
-
-        // POSTS: simple client-side add to blog area
-        document.getElementById('postForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const title = document.getElementById('postTitle').value.trim();
-            const body = document.getElementById('postBody').value.trim();
-            if (!title || !body) return alert('সব খালি পূরণ করুন');
-            // prepend a card
-            const container = document.querySelector('#blog .row');
-            const col = document.createElement('div');
-            col.className = 'col-md-4';
-            col.innerHTML = `
-      <div class="card h-100" data-aos="fade-up">
-        <div class="card-body">
-          <h5 class="card-title">${escapeHtml(title)}</h5>
-          <p class="excerpt">${escapeHtml(body.substring(0, 120))}...</p>
-          <a href="#" class="stretched-link">পুরোটা পড়ুন</a>
-        </div>
-        <div class="card-footer text-muted">${new Date().toLocaleDateString('bn-BD')}</div>
-      </div>
-    `;
-            container.prepend(col);
-            const modal = bootstrap.Modal.getInstance(document.getElementById('postModal'));
-            modal.hide();
-            document.getElementById('postForm').reset();
-            AOS.refresh();
-        });
-
-        function escapeHtml(text) { return text.replace(/[&<>"']/g, function (m) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]); }); }
-
-        // Floating action (open new recipe quick)
-        document.getElementById('fabBtn').addEventListener('click', function () {
-            openRecipeQuick();
-        });
-
-        function openRecipeQuick() {
-            const modal = new bootstrap.Modal(document.getElementById('recipeModal'));
-            document.getElementById('recipeModalTitle').innerText = 'রেসিপি যোগ করুন (ডেমো)';
-            document.getElementById('recipeModalBody').innerHTML = `
-      <p class="mb-2">আপনি নতুন রেসিপি এখানে যোগ করতে পারেন — ডাটাবেস সংযুক্ত না থাকায় এটি শুধুমাত্র UI ডেমো।</p>
-      <form id="quickRecipeForm">
-        <div class="mb-3">
-          <label class="form-label">রেসিপির নাম</label>
-          <input class="form-control" id="qTitle" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">সংক্ষিপ্ত বর্ণনা</label>
-          <textarea class="form-control" id="qDesc" rows="3" required></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">যোগ করুন</button>
-      </form>
-    `;
-            modal.show();
-            document.getElementById('quickRecipeForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const t = document.getElementById('qTitle').value.trim();
-                const d = document.getElementById('qDesc').value.trim();
-                if (!t || !d) return alert('সব পূরণ করুন');
-                addRecipeCard(t, d);
-                modal.hide();
-            });
-        }
-
-        function addRecipeCard(title, desc) {
-            const container = document.getElementById('recipeList');
-            const col = document.createElement('div');
-            col.className = 'col-md-4 recipe-card';
-            col.setAttribute('data-aos', 'fade-up');
-            col.innerHTML = `
-      <div class="card card-fish">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="${escapeHtml(title)}">
-        <div class="card-body">
-          <h5 class="card-title">${escapeHtml(title)}</h5>
-          <p class="excerpt">${escapeHtml(desc)}</p>
-          <div class="d-flex justify-content-between align-items-center mt-3">
-            <button class="btn btn-sm btn-outline-primary" onclick="openRecipe('${escapeHtml(title)}')">রেসিপি দেখুন</button>
-            <small class="text-muted">সময়: -</small>
-          </div>
-        </div>
-      </div>
-    `;
-            container.prepend(col);
-            AOS.refresh();
-        }
-
-        // recipe modal content by key
-        function openRecipe(key) {
-            const modalEl = document.getElementById('recipeModal');
-            const modal = new bootstrap.Modal(modalEl);
-            const title = key === 'ilish-jhol' ? 'ইলিশের ঝোল' : (key === 'rui-bhaja' ? 'রুই ভাজা' : (key === 'fish-fry' ? 'মাছের ফ্রায়' : key));
-            const body = (key === 'ilish-jhol') ? `
-      <h6>উপকরণ</h6>
-      <ul><li>ইলিশ - ৬ টুকরা</li><li>পেঁয়াজ, আদা-রসুন বাটা</li><li>চিনি, লবণ, হলুদ</li></ul>
-      <h6>প্রণালী</h6>
-      <ol><li>মাছ ধুয়ে নিন, লবণ ও হলুদ লেগিয়ে রাখুন।</li><li>কড়াইতে তেল গরম করে হালকা ভাজুন।</li><li>পেঁয়াজ, আদা-রসুন ভাজে ঝোল তৈরি করুন।</li><li>মাছ মিলিয়ে ঢেকে ১০ মিনিট রান্না করুন।</li></ol>
-    ` : (key === 'rui-bhaja' ? `
-      <h6>উপকরণ</h6>
-      <ul><li>রুই - টুকরা</li><li>লবণ, হলুদ, সরষের তেল</li></ul>
-      <h6>প্রস্তুতি</h6>
-      <p>সব মশলা দিয়ে সামান্য ম্যারিনেট করে গরম তেলে ভাজুন।</p>
-    ` : (key === 'fish-fry' ? `
-      <h6>উপকরণ</h6><ul><li>মাছ (আপনার পছন্দ)</li><li>আটা, লবণ, সরিষা তেল</li></ul>
-      <h6>প্রস্তুতি</h6><p>মাছ মশলায় মাখিয়ে আটা লেগিয়ে ডীপ ফ্রাই করুন।</p>
-    ` : `<p>রেসিপি: ${escapeHtml(key)}</p>`));
-            document.getElementById('recipeModalTitle').innerText = title;
-            document.getElementById('recipeModalBody').innerHTML = body;
-            modal.show();
-        }
-
-        // generic modal usage
-        function openModal(which) {
-            const gm = new bootstrap.Modal(document.getElementById('genericModal'));
-            if (which === 'fishModal') {
-                document.getElementById('genericModalTitle').innerText = 'মাছের পূর্ণ তালিকা';
-                document.getElementById('genericModalBody').innerHTML = `
-        <ul>
-          <li>ইলিশ - পুষ্টিতে উচ্চ</li>
-          <li>রুই - বাড়ির প্রিয়</li>
-          <li>কাতলা - বড় ও মাংসল</li>
-          <li>পুঁটি, মৃগেল, কই, তেলাপিয়া, সাই - স্থানীয় বেছে নিন</li>
-        </ul>
-      `;
+    <!-- <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
             }
-            gm.show();
-        }
-
-        // recipe search filter
-        document.getElementById('recipeSearch').addEventListener('input', function (e) {
-            const q = e.target.value.toLowerCase();
-            document.querySelectorAll('#recipeList .card').forEach(card => {
-                const txt = card.innerText.toLowerCase();
-                card.parentElement.style.display = txt.includes(q) ? '' : 'none';
-            });
         });
+    </script> -->
 
-        // small helper: close mobile nav on click
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(n => n.addEventListener('click', () => {
-            const bsCollapse = document.querySelector('.navbar-collapse');
-            if (bsCollapse.classList.contains('show')) {
-                bootstrap.Collapse.getInstance(bsCollapse).hide();
-            }
-        }));
 
-        // initial small fade in
-        window.addEventListener('load', () => {
-            document.querySelectorAll('[data-aos]').forEach(el => el.classList.add('aos-init'));
-        });
-
-    </script>
 
 </body>
 
