@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fishfy - Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1daadf;
+            --accent: #0d6efd;
+            --sea: #0b7285;
+            --muted: #6c757d;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .gallery-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-weight: 800;
+            color: var(--sea);
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 span {
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .gallery-filter {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--sea);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .gallery-item {
+            margin-bottom: 25px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 110, 253, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .img-overlay {
+            opacity: 1;
+        }
+
+        .img-overlay i {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .gallery-info {
+            padding: 15px;
+            background: white;
+        }
+
+        .gallery-title {
+            font-weight: 700;
+            color: var(--sea);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .gallery-category {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .video-thumbnail:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .video-thumbnail:hover img {
+            transform: scale(1.1);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-thumbnail:hover .video-overlay {
+            opacity: 1;
+            background: rgba(13, 110, 253, 0.7);
+        }
+
+        .play-btn {
+            font-size: 4rem;
+            color: white;
+            opacity: 0.9;
+            transition: transform 0.3s;
+        }
+
+        .video-thumbnail:hover .play-btn {
+            transform: scale(1.1);
+        }
+
+        .video-info {
+            padding: 15px;
+            background: white;
+        }
+
+        .video-title {
+            font-weight: 700;
+            color: var(--sea);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .video-duration {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .modal-content {
+            border-radius: 12px;
+            overflow: hidden;
+            border: none;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .modal-close-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+            border-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-section {
+                padding: 60px 0;
+            }
+
+            .filter-btn {
+                margin-bottom: 10px;
+            }
+
+            .img-container {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Image Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Fishfy <span>Image Gallery</span></h2>
+                <p>Explore our collection of high-quality fish images, fishing techniques, and aquatic life</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="gallery-filter" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all">All Images</button>
+                <button class="filter-btn" data-filter="freshwater">Freshwater Fish</button>
+                <button class="filter-btn" data-filter="saltwater">Saltwater Fish</button>
+                <button class="filter-btn" data-filter="fishing">Fishing Techniques</button>
+                <button class="filter-btn" data-filter="recipes">Fish Recipes</button>
+            </div>
+
+            <!-- Gallery Items -->
+            <div class="row">
+                <!-- Freshwater -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-aos="fade-up" data-aos-delay="200"
+                    data-category="freshwater">
+                    <div class="img-container" data-bs-toggle="modal" data-bs-target="#imageModal"
+                        data-image="https://images.unsplash.com/photo-1465113842747-bd8e3b495ce8?auto=format&fit=crop&w=1000&q=80">
+                        <img src="https://images.unsplash.com/photo-1465113842747-bd8e3b495ce8?auto=format&fit=crop&w=600&q=80"
+                            alt="Freshwater Fish">
+                        <div class="img-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Freshwater Trout</h3>
+                        <p class="gallery-category">Freshwater Fish</p>
+                    </div>
+                </div>
+
+                <!-- Fishing -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-aos="fade-up" data-aos-delay="200"
+                    data-category="fishing">
+                    <div class="img-container" data-bs-toggle="modal" data-bs-target="#imageModal"
+                        data-image="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1000&q=80">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80"
+                            alt="Fishing Technique">
+                        <div class="img-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Casting Technique</h3>
+                        <p class="gallery-category">Fishing Technique</p>
+                    </div>
+                </div>
+
+                <!-- Saltwater -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-aos="fade-up" data-aos-delay="200"
+                    data-category="saltwater">
+                    <div class="img-container" data-bs-toggle="modal" data-bs-target="#imageModal"
+                        data-image="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1000&q=80">
+                        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=600&q=80"
+                            alt="Saltwater Fish">
+                        <div class="img-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Saltwater Snapper</h3>
+                        <p class="gallery-category">Saltwater Fish</p>
+                    </div>
+                </div>
+
+                <!-- Recipes -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-aos="fade-up" data-aos-delay="200"
+                    data-category="recipes">
+                    <div class="img-container" data-bs-toggle="modal" data-bs-target="#imageModal"
+                        data-image="https://images.unsplash.com/photo-1604908177111-3c31e1d2f3bb?auto=format&fit=crop&w=1000&q=80">
+                        <img src="https://images.unsplash.com/photo-1604908177111-3c31e1d2f3bb?auto=format&fit=crop&w=600&q=80"
+                            alt="Fish Recipe">
+                        <div class="img-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Grilled Fish Dish</h3>
+                        <p class="gallery-category">Recipe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery Section -->
+    <section class="gallery-section bg-light">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Fishfy <span>Video Gallery</span></h2>
+                <p>Watch our collection of instructional videos, fishing tutorials, and recipe demonstrations</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal"
+                        data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Fishing Tutorial">
+                        <div class="video-overlay"><i class="fas fa-play-circle play-btn"></i></div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Beginner Fishing Techniques</h3>
+                        <p class="video-duration">15:24 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-body p-0 position-relative">
+                    <div class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i>
+                    </div>
+                    <img id="modalImage" src="" class="w-100" alt="Selected Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-body p-0 position-relative">
+                    <div class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i>
+                    </div>
+                    <div class="ratio ratio-16x9">
+                        <iframe id="videoFrame" src="" title="Video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Filtering Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({ duration: 800, easing: 'ease-in-out', once: true, mirror: false });
+
+            // Video Modal
+            const videoModal = document.getElementById('videoModal');
+            const videoFrame = document.getElementById('videoFrame');
+            videoModal.addEventListener('show.bs.modal', e => {
+                const button = e.relatedTarget;
+                videoFrame.src = button.getAttribute('data-video');
+            });
+            videoModal.addEventListener('hide.bs.modal', () => { videoFrame.src = ''; });
+
+            // Image Modal
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            imageModal.addEventListener('show.bs.modal', e => {
+                const imgDiv = e.relatedTarget;
+                modalImage.src = imgDiv.getAttribute('data-image');
+            });
+        });
+    </script>
+</body>
+
+</html>

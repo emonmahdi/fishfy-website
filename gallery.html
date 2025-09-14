@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="bn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fishfy - মাছের তথ্য · রেসিপি · কমিউনিটি</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="assets/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Favicon (Optional) -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts (Bangla-friendly) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bangla:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --primary: #1daadf;
+            --accent: #0d6efd;
+            --sea: #0b7285;
+            --muted: #6c757d;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .gallery-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-weight: 800;
+            color: var(--sea);
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 span {
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .gallery-filter {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--sea);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .gallery-item {
+            margin-bottom: 25px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 110, 253, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .img-overlay {
+            opacity: 1;
+        }
+
+        .img-overlay i {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .gallery-info {
+            padding: 15px;
+            background: white;
+        }
+
+        .gallery-title {
+            font-weight: 700;
+            color: var(--sea);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .gallery-category {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .video-thumbnail:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .video-thumbnail:hover img {
+            transform: scale(1.1);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-thumbnail:hover .video-overlay {
+            opacity: 1;
+            background: rgba(13, 110, 253, 0.7);
+        }
+
+        .play-btn {
+            font-size: 4rem;
+            color: white;
+            opacity: 0.9;
+            transition: transform 0.3s;
+        }
+
+        .video-thumbnail:hover .play-btn {
+            transform: scale(1.1);
+        }
+
+        .video-info {
+            padding: 15px;
+            background: white;
+        }
+
+        .video-title {
+            font-weight: 700;
+            color: var(--sea);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .video-duration {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .modal-content {
+            border-radius: 12px;
+            overflow: hidden;
+            border: none;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .modal-close-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+            border-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-section {
+                padding: 60px 0;
+            }
+
+            .filter-btn {
+                margin-bottom: 10px;
+            }
+
+            .img-container {
+                height: 200px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="assets/images/fish-logo.png" alt="logo" width="100" class="me-2 rounded-circle">
+                <!-- Fishfy -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">হোম</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">আমাদের সম্পর্কে</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fish-info.html">মাছের তথ্য</a></li>
+                    <li class="nav-item"><a class="nav-link" href="recipe.html">রেসিপি</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">ইমেজ গ্যালারি</a></li>
+                    <li class="nav-item"><a class="nav-link" href="video-gallery.html">ভিডিও গ্যালারি</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">ব্লগ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">যোগাযোগ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE BREADCRUMB -->
+    <section class="breadcrumb-section"
+        style="background: linear-gradient(rgba(3,36,58,0.7), rgba(3,36,58,0.7)), url('/assets/images/about/about-fish-fy.jpg') center/cover no-repeat;">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center text-white">
+                    <h2 class="breadcrumb-title">ইমেজ গ্যালারি</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center mb-0">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white">হোম</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">ইমেজ গ্যালারি</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Fishfy <span>Image Gallery</span></h2>
+                <p>Explore our collection of high-quality fish images, fishing techniques, and aquatic life</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="gallery-filter" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all">All Images</button>
+                <button class="filter-btn" data-filter="freshwater">Freshwater Fish</button>
+                <button class="filter-btn" data-filter="saltwater">Saltwater Fish</button>
+                <button class="filter-btn" data-filter="fishing">Fishing Techniques</button>
+                <button class="filter-btn" data-filter="recipes">Fish Recipes</button>
+            </div>
+
+            <!-- Gallery Items -->
+            <div class="row">
+                <!-- Freshwater -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-aos="fade-up" data-aos-delay="200"
+                    data-category="freshwater">
+                    <div class="img-container" data-bs-toggle="modal" data-bs-target="#imageModal"
+                        data-image="assets/images/fish/freshwater-fish-1.webp">
+                        <img src="assets/images/fish/freshwater-fish-1.webp" alt="Freshwater Fish">
+                        <div class="img-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Freshwater Trout</h3>
+                        <p class="gallery-category">Freshwater Fish</p>
+                    </div>
+                </div>
+
+                <!-- Fishing -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-aos="fade-up" data-aos-delay="200"
+                    data-category="fishing">
+                    <div class="img-container" data-bs-toggle="modal" data-bs-target="#imageModal"
+                        data-image="assets/images/fish/fishing_techniques.jpg">
+                        <img src="assets/images/fish/fishing_techniques.jpg" alt="Fishing Technique">
+                        <div class="img-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Casting Technique</h3>
+                        <p class="gallery-category">Fishing Technique</p>
+                    </div>
+                </div>
+
+                <!-- Saltwater -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-aos="fade-up" data-aos-delay="200"
+                    data-category="saltwater">
+                    <div class="img-container" data-bs-toggle="modal" data-bs-target="#imageModal"
+                        data-image="assets/images/fish/saltwater.jfif">
+                        <img src="assets/images/fish/saltwater.jfif" alt="Saltwater Fish">
+                        <div class="img-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Saltwater Snapper</h3>
+                        <p class="gallery-category">Saltwater Fish</p>
+                    </div>
+                </div>
+
+                <!-- Recipes -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-aos="fade-up" data-aos-delay="200"
+                    data-category="recipes">
+                    <div class="img-container" data-bs-toggle="modal" data-bs-target="#imageModal"
+                        data-image="assets/images/fish/fish_recipes.jpg">
+                        <img src="assets/images/fish/fish_recipes.jpg" alt="Fish Recipe">
+                        <div class="img-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">Grilled Fish Dish</h3>
+                        <p class="gallery-category">Recipe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-body p-0 py-5 position-relative">
+                    <div class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i>
+                    </div>
+                    <img id="modalImage" src="" class="w-100" alt="Selected Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row gy-5">
+
+                <!-- About Section -->
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">🐟 Fishfy</h5>
+                    <p>
+                        Fishfy হচ্ছে মাছ প্রেমীদের জন্য এক আধুনিক প্ল্যাটফর্ম। এখানে আপনি পাবেন মাছের তথ্য, রান্নার
+                        রেসিপি, স্বাস্থ্য ও পুষ্টি টিপস, এবং একটি প্রাণবন্ত কমিউনিটি। আমাদের লক্ষ্য: প্রতিটি মানুষকে
+                        মাছের সঠিক জ্ঞান ও সুস্বাদু রেসিপি পৌঁছে দেওয়া।
+                    </p>
+                    <p>আমাদের সাথে থাকুন, শিখুন ও ভাগ করুন।</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-6 col-lg-3">
+                    <h6 class="footer-subtitle">🔗 গুরুত্বপূর্ণ লিঙ্ক</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#home">🏠 হোম</a></li>
+                        <li><a href="#recipes">🍲 রেসিপি</a></li>
+                        <li><a href="#fish-info">🐠 মাছের তথ্য</a></li>
+                        <li><a href="#blog">📝 ব্লগ</a></li>
+                        <li><a href="#community">👥 কমিউনিটি</a></li>
+                        <li><a href="#about">ℹ️ আমাদের সম্পর্কে</a></li>
+                        <li><a href="#contact">📞 যোগাযোগ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services / Resources -->
+                <div class="col-md-6 col-lg-3">
+                    <h6 class="footer-subtitle">💡 সেবা / রিসোর্স</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Fresh Fish Online</a></li>
+                        <li><a href="#">Weekly Recipe Tips</a></li>
+                        <li><a href="#">Fish Storage Guide</a></li>
+                        <li><a href="#">Nutrition & Health Info</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Subscribe Newsletter</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Social -->
+                <div class="col-md-6 col-lg-3">
+                    <h6 class="footer-subtitle">📞 যোগাযোগ ও সোশ্যাল</h6>
+                    <div class="info-box mb-3">
+                        <p>📍 বরিশাল, বাংলাদেশ</p>
+                        <p>✉️ fishfy.bd@gmail.com</p>
+                        <p>📞 +880 1234-567890</p>
+                        <p>🕒 সময়: সোমবার - শনিবার, ৯AM - ৬PM</p>
+                    </div>
+
+                    <h6 class="footer-subtitle">🌐 আমাদের সাথে যুক্ত থাকুন</h6>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/fishfy.kfl" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+
+                    <h6 class="footer-subtitle mt-3">📰 নিউজলেটার সাবস্ক্রিপশন</h6>
+                    <form class="newsletter-form d-flex">
+                        <input type="email" class="form-control me-2" placeholder="ইমেইল লিখুন..." required>
+                        <button class="btn btn-primary" type="submit">সাবস্ক্রাইব</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <hr class="my-4" />
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    © ২০২৫ <strong>Fishfy</strong> • All rights reserved
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    ডিজাইন ও ডেভেলপ করা হয়েছে <a href="#" class="text-white text-decoration-underline">Fishfy Team</a>
+                    দ্বারা
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Floating Chat / CTA -->
+    <div class="fab" id="fabBtn" title="নতুন রেসিপি">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-plus-lg"
+            viewBox="0 0 16 16">
+            <path
+                d="M8 1a.5.5 0 0 1 .5.5V7.5H14a.5.5 0 1 1 0 1H8.5V14a.5.5 0 1 1-1 0V8.5H2a.5.5 0 1 1 0-1h5.5V1.5A.5.5 0 0 1 8 1z" />
+        </svg>
+    </div>
+
+    <!-- RECIPE MODAL -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recipeModalTitle">রেসিপি</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="recipeModalBody">
+                    <!-- content injected by JS -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GENERIC MODAL for fish list or post -->
+    <div class="modal fade" id="genericModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="genericModalTitle">শিরোনাম</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="genericModalBody">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">বন্ধ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POST MODAL -->
+    <div class="modal fade" id="postModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">নতুন পোস্ট করুন</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="postForm">
+                        <div class="mb-3">
+                            <label class="form-label">শিরোনাম</label>
+                            <input class="form-control" id="postTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">বর্ণনা</label>
+                            <textarea class="form-control" id="postBody" rows="4" required></textarea>
+                        </div>
+                        <button class="btn btn-success" type="submit">পোস্ট করুন</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <!-- Font awesom Js -->
+    <script src="assets/js/all.min.js"></script>
+    <!-- Counter Js -->
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/script.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Filtering Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Image Modal Logic
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+
+            document.querySelectorAll('.img-container').forEach(container => {
+                container.addEventListener('click', () => {
+                    const imageSrc = container.getAttribute('data-image');
+                    modalImage.src = imageSrc;
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
