@@ -1,21 +1,21 @@
 AOS.init({ duration: 700, once: true });
 
 // Simple single-page active link highlighting on scroll
-const sections = document.querySelectorAll("section, header");
-const navLinks = document.querySelectorAll(".nav-link");
+// const sections = document.querySelectorAll("section, header");
+// const navLinks = document.querySelectorAll(".nav-link");
 
-function setActiveLink() {
-  let index = sections.length;
-  while (--index && window.scrollY + 120 < sections[index].offsetTop) {}
-  navLinks.forEach((link) => link.classList.remove("active"));
-  const id = sections[index].id;
-  const activeLink = Array.from(navLinks).find(
-    (l) => l.getAttribute("href") === "#" + id
-  );
-  if (activeLink) activeLink.classList.add("active");
-}
-setActiveLink();
-window.addEventListener("scroll", setActiveLink);
+// function setActiveLink() {
+//   let index = sections.length;
+//   while (--index && window.scrollY + 120 < sections[index].offsetTop) {}
+//   navLinks.forEach((link) => link.classList.remove("active"));
+//   const id = sections[index].id;
+//   const activeLink = Array.from(navLinks).find(
+//     (l) => l.getAttribute("href") === "#" + id
+//   );
+//   if (activeLink) activeLink.classList.add("active");
+// }
+// setActiveLink();
+// window.addEventListener("scroll", setActiveLink);
 
 // CONTACT FORM validation and pretend send
 (function () {

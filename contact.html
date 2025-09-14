@@ -20,10 +20,8 @@
 
     <!-- Google Fonts (Bangla-friendly) -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bangla:wght@400;700&display=swap" rel="stylesheet">
-
-
-
-
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 </head>
 
@@ -41,28 +39,28 @@
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">হোম</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">হোম</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">আমাদের সম্পর্কে</a></li>
                     <li class="nav-item"><a class="nav-link" href="fish-info.html">মাছের তথ্য</a></li>
                     <li class="nav-item"><a class="nav-link" href="recipe.html">রেসিপি</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">ব্লগ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">যোগাযোগ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">যোগাযোগ</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- ABOUT PAGE BREADCRUMB -->
+    <!-- PAGE BREADCRUMB -->
     <section class="breadcrumb-section"
         style="background: linear-gradient(rgba(3,36,58,0.7), rgba(3,36,58,0.7)), url('/assets/images/about/about-fish-fy.jpg') center/cover no-repeat;">
         <div class="container">
             <div class="row">
                 <div class="col text-center text-white">
-                    <h2 class="breadcrumb-title">Order</h2>
+                    <h2 class="breadcrumb-title">যোগাযোগ</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center mb-0">
                             <li class="breadcrumb-item"><a href="index.html" class="text-white">হোম</a></li>
-                            <li class="breadcrumb-item active text-white" aria-current="page">Order</li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">যোগাযোগ</li>
                         </ol>
                     </nav>
                 </div>
@@ -70,104 +68,62 @@
         </div>
     </section>
 
-    <!-- Checkout Section -->
-    <section class="checkout-section">
+    <!-- CONTACT -->
+    <section class="contact-section py-5">
         <div class="container">
-            <div class="row g-4 align-items-center">
+            <!-- Section Header -->
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-primary">যোগাযোগ করুন</h2>
+                <p class="text-muted">প্রশ্ন, প্রস্তাব বা ব্যবসায়িক সুযোগ—নিচের ফর্মে লিখে পাঠান।</p>
+            </div>
 
-                <!-- Product Image -->
+            <div class="row g-4 align-items-stretch">
+                <!-- Contact Form -->
                 <div class="col-lg-6" data-aos="fade-right">
-                    <img src="assets/images/fish/fish-1.jpeg" alt="Ilish Frozen" class="product-img">
+                    <form id="contactForm" class="p-4 bg-white rounded-3 shadow-sm h-100">
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-semibold">আপনার নাম</label>
+                            <input type="text" class="form-control" id="name" placeholder="নাম লিখুন" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">ইমেইল</label>
+                            <input type="email" class="form-control" id="email" placeholder="example@mail.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label fw-semibold">বার্তা</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="আপনার বার্তা লিখুন..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-custom primary px-4">📨 পাঠান</button>
+                    </form>
                 </div>
 
-                <!-- Product Details + Cart -->
+                <!-- Contact Info -->
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="product-details">
-                        <h3 class="fw-bold">ইলিশ ফ্রোজেন</h3>
-                        <p class="text-muted">তাজা ইলিশ মাছ, কেটে পরিষ্কার করে ভ্যাকুয়াম প্যাকে রাখা হয়েছে।</p>
-                        <h4 class="fw-bold text-dark mb-3">৳ ৮৫০ / কেজি</h4>
-
-                        <!-- Quantity Selector -->
-                        <div class="mb-3">
-                            <label class="form-label">পরিমাণ (কেজি)</label>
-                            <input type="number" id="quantity" class="form-control w-50" value="1" min="1">
+                    <div class="p-4 bg-white rounded-3 shadow-sm mb-4 h-100 d-flex flex-column justify-content-between">
+                        <div class="info-box mb-3">
+                            <h3 class="text-primary fw-bold mb-3">আমাদের ঠিকানা</h3>
+                            <p class="mb-2">🏠 Fishfy, ঢাকা, বাংলাদেশ</p>
+                            <p class="mb-2">📞 +880 1XXXXXXXXX</p>
+                            <p class="mb-0">✉️ info@fishfy.example</p>
                         </div>
 
-                        <!-- Cart Summary -->
-                        <div class="cart-summary">
-                            <p class="d-flex justify-content-between">
-                                <span>প্রোডাক্ট:</span> <span>ইলিশ ফ্রোজেন</span>
-                            </p>
-                            <p class="d-flex justify-content-between">
-                                <span>দাম (প্রতি কেজি):</span> <span>৳ ৮৫০</span>
-                            </p>
-                            <p class="d-flex justify-content-between">
-                                <span>পরিমাণ:</span> <span id="cartQty">১</span>
-                            </p>
-                            <p class="d-flex justify-content-between">
-                                <span>ডেলিভারি চার্জ:</span> <span>৳ ৫০</span>
-                            </p>
-                            <hr>
-                            <h5 class="d-flex justify-content-between">
-                                <span>মোট:</span> <span id="cartTotal">৳ ৯০০</span>
-                            </h5>
+                        <div class="map-box mt-3">
+                            <iframe
+                                src="https://maps.google.com/maps?q=Dhaka%20Bangladesh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Buy Button -->
-                        <button class="btn btn-custom w-100 mt-3" data-bs-toggle="modal" data-bs-target="#orderModal">
-                            <i class="fas fa-cart-plus"></i> এখনই কিনুন
-                        </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Order Form Modal -->
-    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content p-3">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="orderModalLabel"><i class="fas fa-user"></i> আপনার অর্ডার তথ্য দিন</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="orderForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">নাম</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">ইমেইল</label>
-                                <input type="email" class="form-control" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">মোবাইল নাম্বার</label>
-                                <input type="tel" class="form-control" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">পেমেন্ট মেথড</label>
-                                <select class="form-select" required>
-                                    <option>ক্যাশ অন ডেলিভারি</option>
-                                    <option>বিকাশ</option>
-                                    <option>নগদ</option>
-                                    <option>রকেট</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">ঠিকানা</label>
-                                <textarea class="form-control" rows="3" required></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-custom w-100 mt-3"><i class="fas fa-check-circle"></i>
-                            অর্ডার কনফার্ম করুন</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
 
     <!-- FOOTER -->
     <footer class="site-footer">
@@ -254,44 +210,86 @@
 
 
 
+    <!-- Floating Chat / CTA -->
+    <div class="fab" id="fabBtn" title="নতুন রেসিপি">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-plus-lg"
+            viewBox="0 0 16 16">
+            <path
+                d="M8 1a.5.5 0 0 1 .5.5V7.5H14a.5.5 0 1 1 0 1H8.5V14a.5.5 0 1 1-1 0V8.5H2a.5.5 0 1 1 0-1h5.5V1.5A.5.5 0 0 1 8 1z" />
+        </svg>
+    </div>
+
+    <!-- RECIPE MODAL -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recipeModalTitle">রেসিপি</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="recipeModalBody">
+                    <!-- content injected by JS -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GENERIC MODAL for fish list or post -->
+    <div class="modal fade" id="genericModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="genericModalTitle">শিরোনাম</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="genericModalBody">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">বন্ধ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POST MODAL -->
+    <div class="modal fade" id="postModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">নতুন পোস্ট করুন</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="postForm">
+                        <div class="mb-3">
+                            <label class="form-label">শিরোনাম</label>
+                            <input class="form-control" id="postTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">বর্ণনা</label>
+                            <textarea class="form-control" id="postBody" rows="4" required></textarea>
+                        </div>
+                        <button class="btn btn-success" type="submit">পোস্ট করুন</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- SCRIPTS -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <!-- Counter Js -->
     <script src="assets/js/counter.js"></script>
-    <!-- Fontawesome -->
-    <script src="assets/js/all.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
-    <script>AOS.init();</script>
 
-    <script>
-        const qtyInput = document.getElementById("quantity");
-        const cartQty = document.getElementById("cartQty");
-        const cartTotal = document.getElementById("cartTotal");
-        const pricePerKg = 850;
-        const deliveryCharge = 50;
-
-        qtyInput.addEventListener("input", () => {
-            let qty = parseInt(qtyInput.value) || 1;
-            if (qty < 1) qty = 1;
-            cartQty.textContent = qty;
-            cartTotal.textContent = "৳ " + (pricePerKg * qty + deliveryCharge);
-        });
-
-        document.getElementById("orderForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            Swal.fire({
-                icon: 'success',
-                title: 'অর্ডার সফল হয়েছে!',
-                text: 'আপনার অর্ডার গ্রহণ করা হয়েছে। আমরা শীঘ্রই যোগাযোগ করবো।',
-                confirmButtonColor: '#1daadf'
-            });
-            document.getElementById("orderForm").reset();
-            const modal = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
-            modal.hide();
-        });
-    </script>
 
 </body>
 
