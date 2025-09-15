@@ -60,11 +60,11 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center text-white">
-                    <h2 class="breadcrumb-title">Order</h2>
+                    <h2 class="breadcrumb-title">ইলিশ ফ্রোজেন</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center mb-0">
                             <li class="breadcrumb-item"><a href="index.html" class="text-white">হোম</a></li>
-                            <li class="breadcrumb-item active text-white" aria-current="page">Order</li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">ইলিশ ফ্রোজেন</li>
                         </ol>
                     </nav>
                 </div>
@@ -76,10 +76,9 @@
     <section class="checkout-section">
         <div class="container">
             <div class="row g-4 align-items-center">
-
                 <!-- Product Image -->
                 <div class="col-lg-6" data-aos="fade-right">
-                    <img src="assets/images/fish/fish-1.jpeg" alt="Ilish Frozen" class="product-img">
+                    <img src="assets/images/fish/fish-3.avif" alt="Ilish Frozen" class="product-img">
                 </div>
 
                 <!-- Product Details + Cart -->
@@ -87,12 +86,19 @@
                     <div class="product-details">
                         <h3 class="fw-bold">ইলিশ ফ্রোজেন</h3>
                         <p class="text-muted">তাজা ইলিশ মাছ, কেটে পরিষ্কার করে ভ্যাকুয়াম প্যাকে রাখা হয়েছে।</p>
-                        <h4 class="fw-bold text-dark mb-3">৳ ৮৫০ / কেজি</h4>
+                        <h4 class="product-price">৳ ৮৫০ / কেজি</h4>
 
                         <!-- Quantity Selector -->
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label class="form-label">পরিমাণ (কেজি)</label>
-                            <input type="number" id="quantity" class="form-control w-50" value="1" min="1">
+                            <div class="quantity-selector">
+                                <div class="quantity-controls d-flex align-items-center">
+                                    <button class="quantity-btn minus" onclick="updateQuantity(-1)">-</button>
+                                    <input type="number" id="quantity" class="quantity-input" value="1" min="1"
+                                        onchange="calculateTotal()">
+                                    <button class="quantity-btn plus" onclick="updateQuantity(1)">+</button>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Cart Summary -->
@@ -104,7 +110,7 @@
                                 <span>দাম (প্রতি কেজি):</span> <span>৳ ৮৫০</span>
                             </p>
                             <p class="d-flex justify-content-between">
-                                <span>পরিমাণ:</span> <span id="cartQty">১</span>
+                                <span>পরিমাণ:</span> <span id="cartQty">১ কেজি</span>
                             </p>
                             <p class="d-flex justify-content-between">
                                 <span>ডেলিভারি চার্জ:</span> <span>৳ ৫০</span>
@@ -115,13 +121,19 @@
                             </h5>
                         </div>
 
+                        <!-- Delivery Info -->
+                        <div class="delivery-info">
+                            <p><i class="fas fa-truck"></i> ডেলিভারি সময়: ২৪-৪৮ ঘন্টা</p>
+                            <p><i class="fas fa-map-marker-alt"></i> ঢাকা city তে ডেলিভারি ফ্রি ৩ কেজির উপরে</p>
+                        </div>
+
                         <!-- Buy Button -->
-                        <button class="btn btn-custom w-100 mt-3" data-bs-toggle="modal" data-bs-target="#orderModal">
+                        <button class="btn-custom primary  w-100 mt-3" data-bs-toggle="modal"
+                            data-bs-target="#orderModal">
                             <i class="fas fa-cart-plus"></i> এখনই কিনুন
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -162,9 +174,18 @@
                                 <label class="form-label">ঠিকানা</label>
                                 <textarea class="form-control" rows="3" required></textarea>
                             </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                                    <label class="form-check-label" for="termsCheck">
+                                        আমি <a href="#">শর্তাবলী</a> এবং <a href="#">গোপনীয়তা নীতি</a> acept করছি
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-custom w-100 mt-3"><i class="fas fa-check-circle"></i>
-                            অর্ডার কনফার্ম করুন</button>
+                        <button type="submit" class="btn btn-custom w-100 mt-3">
+                            <i class="fas fa-check-circle"></i> অর্ডার কনফার্ম করুন
+                        </button>
                     </form>
                 </div>
             </div>
@@ -267,7 +288,7 @@
 
     <script>AOS.init();</script>
 
-    <script>
+    <!-- <script>
         const qtyInput = document.getElementById("quantity");
         const cartQty = document.getElementById("cartQty");
         const cartTotal = document.getElementById("cartTotal");
@@ -293,8 +314,52 @@
             const modal = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
             modal.hide();
         });
-    </script>
+    </script> -->
 
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
+        });
+
+        // Quantity update function
+        function updateQuantity(change) {
+            const quantityInput = document.getElementById('quantity');
+            let quantity = parseInt(quantityInput.value);
+
+            quantity += change;
+
+            if (quantity < 1) quantity = 1;
+
+            quantityInput.value = quantity;
+            calculateTotal();
+        }
+
+        // Calculate total price
+        function calculateTotal() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const pricePerKg = 850;
+            const deliveryCharge = 50;
+            const total = (quantity * pricePerKg) + deliveryCharge;
+
+            document.getElementById('cartQty').textContent = quantity + ' কেজি';
+            document.getElementById('cartTotal').textContent = '৳ ' + total.toLocaleString('bn-BD');
+        }
+
+        // Form submission
+        document.getElementById('orderForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।');
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
+            modal.hide();
+        });
+    </script>
 </body>
 
 </html>
